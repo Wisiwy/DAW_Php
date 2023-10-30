@@ -43,16 +43,17 @@ echo "<hr>"
 
         <!--INPUTS: Muchos tipos. Con expresiones regulares ya predefinidas.
         Name: recuperar valor en el servidor. -->
-        <!--*****EJERCICIO formulario de Datos Personales*****-->
 
+        <!--*****EJERCICIO formulario de Datos Personales*****-->
+<!--Diferentes inputs: -->
         <legend>Datos personales</legend>
-        Nombre <input type="text" name="nombre" id="">
-        Apellido <input type="text" name="apellido" id="">
-        Email <input type="emaill" name="email" id="">
-        Genero <br>
-        <input type="radio" name="genero" value="mujer" id="">Mujer<br/>
-        <input type="radio" name="genero" value="hombre" id="">Hombre<br/>
-        <input type="radio" name="genero" value="no aporta" id="">No aporta<br/>
+        Nombre (type text) <input type="text" name="nombre" id="">
+        Apellido (type text) <input type="text" name="apellido" id="">
+        Email (type email)<input type="emaill" name="email" id="">
+        Genero (radip)<br>
+            <input type="radio" name="genero" value="mujer" id="">Mujer<br/>
+            <input type="radio" name="genero" value="hombre" id="">Hombre<br/>
+            <input type="radio" name="genero" value="no aporta" id="">No aporta<br/>
         <hr>
         <select name="estudios" id=""
 
