@@ -1,4 +1,7 @@
 <?php
+$checked_10 = $_GET['intentos'] ?? "checked";
+$checked_16 = $_POST['intervalo'] ?? "";
+$checked_20 = $_POST['intervalo'] ?? "";
 ?>
 <!doctype html>
 <html lang="es">
@@ -16,9 +19,9 @@
 <form action="jugar.php" method="post">
     <fieldset>
         <legend>Establece intervalo</legend>
-        <input type="radio" name="intervalo" checked value="10">1-1024(2<sup>10</sup>). 10 intentos <br>
-        <input type="radio" name="intervalo" value="16">1-65.536(2<sup>16</sup>). 16 intentos <br>
-        <input type="radio" name="intervalo" value="20">1-1.048.576(2<sup>20</sup>). 20 intentos <br><br>
+        <input type="radio" name="intentos" <?=$checked_10?> value="10">1-1024(2<sup>10</sup>). 10 intentos <br>
+        <input type="radio" name="intentos" <?=$checked_16?> value="16">1-65.536(2<sup>16</sup>). 16 intentos <br>
+        <input type="radio" name="intentos" <?=$checked_20?> value="20">1-1.048.576(2<sup>20</sup>). 20 intentos <br><br>
         <input type="submit" value="Empezar" name="submit">
     </fieldset>
 </form>

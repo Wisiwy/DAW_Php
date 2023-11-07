@@ -1,11 +1,14 @@
 <?php
+$estado = $_GET['estado'] ?? "";
+$jugada = $_GET['jugada'] ?? "";
+if($estado == ""){
+    header("location:index.php");
+    exit();
+}
+
+$msj = ($estado)?"Genial has acertado":"Me has engañado." ;
 
 
-if ($_POST['acertado']) {
-    $jugadas = $_POST($jugada); //HAbtia que restar el total al numero de jugada
-    $msj = "He acertado !!!!!!! en <?= $jugadas ?> jugadas.";
-} else
-    $msj = "No has sido sincere. "
 
 ?>
 <!doctype html>
@@ -20,11 +23,9 @@ if ($_POST['acertado']) {
 
 <body>
     <h2>FIN</h2>
-    <h3><?= $msj ?></h3>
-    <h3><?=$_POST['acertado']?> </h3>
-    <!-- <h3>He acertado !!!!!!! en XXX jugadas. </h3>
-    <!--o 
-    <h3>No has sido sincere</h3> -->
+
+    <h3><?=$msj?></h3>
+
 
     <form action="index.php">
         <input type="submit" value="Volver" name="volver">
