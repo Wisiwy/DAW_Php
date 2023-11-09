@@ -2,7 +2,7 @@
 $estado = $_GET['estado'] ?? "";
 $jugada = $_GET['jugada'] ?? "";
 if($estado == ""){
-    header("location:index.php");
+    header("location:indexProfe.php");
     exit();
 }
 

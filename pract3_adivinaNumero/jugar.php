@@ -75,9 +75,9 @@ switch ($opcion) {
         break;
 
     case "Volver":
-        header("location:index.php?intentos = $intentos");
+        header("location:indexProfe.php?intentos = $intentos");
     default:
-        header("location:index.php");
+        header("location:indexProfe.php");
 }
 ?>
 <!doctype html>
