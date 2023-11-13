@@ -1,7 +1,7 @@
 <?php
 /*Ahora leemos la opción que nos ha traído aquí. ROOTEO. */
 $opcion = $_POST['submit'] ?? null;
-/*Inicializar valores cuando venimos de index*/
+/*Inicializar valores cuando venimos de index.php*/
 $intentos = $_POST['intentos'];
 $msj = "La defino en inicio.";
 $jugada = 1;
@@ -21,7 +21,7 @@ switch ($opcion) {
     case "Empezar":
         /*Msj para debuggear el rooteo*/
         $msj = ($msj == "") ? "Vengo INDEX empezar." : $msj;
-        /*Inicializar valores cuando venimos de index*/
+        /*Inicializar valores cuando venimos de index.php*/
         $min = 0;
         $max = 2 ** $intentos;
         //Número de intentos es la potencia a la que elevamos el 2.

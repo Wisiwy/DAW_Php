@@ -22,7 +22,7 @@ switch ($opcion){
         $jugada =1;
         $numero = ($min+$max)/2;
         break;
-    //Acciones is vengo del index y empiezo la jugada
+    //Acciones is vengo del index.php y empiezo la jugada
     case "Jugar":
         $min = $_POST['min'];
         $max = $_POST['max'];

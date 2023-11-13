@@ -15,21 +15,16 @@ var_dump($notas3);
 $notas3 = [8]; //no se suma se iguala
 var_dump($notas3);
 var_dump($notas3);
-$notas3[20] = 3; //agregar un nuevo elemento espedificar índice [20]
+$notas3[20] = 3; //agregar un nuevo elemento especificar índice [20]
 var_dump($notas3);
 $notas3[] = 23; //agregar un nuevo elemento sigue el índice en la 21
 var_dump($notas3);
-
 
 /*Eliminar elemento de una posición*/
 unset ($notas3[21]);
 var_dump($notas3);
 $notas3[] = 3; //sigue el indice 22 aunque hayamos borrado la anterior.
 var_dump($notas3);
-
-
-
-
 
 /******FUNCIONES*******/
 $size = sizeof($notas3);
