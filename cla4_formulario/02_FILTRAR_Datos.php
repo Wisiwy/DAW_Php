@@ -1,7 +1,5 @@
 <?php
-//Leer los datos del formulario.
-
-
+//LEEMOS DATOS: Leer datos por metodo POST.
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
@@ -9,14 +7,23 @@ $genero = $_POST['genero'];
 $estudios = $_POST['estudios'];
 $idiomas = $_POST['idiomas'];
 
-/* *****+ SEGURIDAD: Filtrar los datos, seguridad en nuestro servidor **** */
+/******SEGURIDAD FILTRAR DATOS*/
+/*filter_var($variable, $filtro)
+    $variable . Es la variable a filtar. Correspondería al valor del name del input que queremos recuperar.
+    $filtro. Es el tipo de filtro que se quiere aplicar. Para ver los tipos de filtros, consultamos a la página web http://php.net/manual/es/filter.filters.validate.php.
+/*filter_input($tipo_entrada. $variable, $filtro)
+    -$tipo_entrada: Uno de los siguientes: INPUT_GET, INPUT_POST, INPUT_COOKIE, INPUT_SERVER o INPUT_ENV.
+    -$variable: como en el caso anterior.
+    -$filtro: como en el caso anterior.*/
+
 //STRING
-//Sanitice esta , coger los caracteres considerados peligrosos y el navegador lo convierte como el codigo html &****/
+//Sanitice esta, coger los caracteres considerados peligrosos y el navegador lo convierte como el codigo html &****/
 /*$nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_STRING); */
-    //Este es el recomendado, httspecial chars y filter input.
+
+//**FILTER INPUT y **HTMLSPECIALCHARS
 $nombre = htmlspecialchars( filter_input(INPUT_POST,'nombre'));
 
-//INT
+//FILTER_VALIDATE_INT
 $edad = filter_input(INPUT_POST, 'edad', FILTER_VALIDATE_INT); //Filtra que sea entero
 
 

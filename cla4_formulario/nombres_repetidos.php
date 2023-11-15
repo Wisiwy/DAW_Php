@@ -2,13 +2,11 @@
 if (isset($_POST['submit'])){
     $numeros = $_POST['numero'];
     echo "<h2>$numeros</h2>"; /*Aparece ARRAY la palabra.*/
-
     /*Visualizar arrays*/
     foreach ($numeros as $numero) {
         echo "<h2>$numero</h2>";
     }
 }
-
 ?>
 <!doctype html>
 <html lang="es">

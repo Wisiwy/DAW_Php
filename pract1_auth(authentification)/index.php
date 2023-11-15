@@ -1,8 +1,6 @@
 <?php
 ini_set("display_errors", true);
 error_reporting(E_ALL);
-
-
 function valida_usuario()
 {
     if (isset($_POST['submit'])) {
@@ -20,12 +18,10 @@ function valida_usuario()
         } else {
             $msj = "Datos incorrectos"; //¿¿¿¿esta definida???
             return $msj;
-
         }
     }
 //?¿?¿?¿Devolver return del else no submit
 }
-
 
 // /*ROOTEO : Saber que ruta me ha traido hasta aquí*/
 $option = $_POST['submit'] ?? "";
@@ -38,7 +34,7 @@ switch ($option) {
         $msj = "Espero que vuelvas pronto $nombre ";
         break;
     default:
-        $msj = $_GET['msj']??"";
+        $msj = $_GET['msj'] ?? "";
 }
 ?>
 

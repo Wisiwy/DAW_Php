@@ -3,6 +3,7 @@
 Estamos dejando una puerta abierta al servidor. Revisar las cajas. Preguntar que tipo de dato quiero.
 Tener cuidado.  **** */
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,22 +15,23 @@ Tener cuidado.  **** */
     <title>Document</title>
 </head>
 <body>
-<form action="datos2.php" method="POST">
+<form action="02_FILTRAR_Datos.php" method="POST">
     <!--Archivo donde voy a guardar los datos enviados
     methos: POST. Por el que se pasan los datos. -->
     <fieldset>
         <legend>Datos personales</legend>
-        <label for="nombre">Nombre</label> <!--uso de label corrcto pero Manuel le da igual-->
-        <input type="text" name="nombre" id=""><br/> <!--Emmet-> "input:text + tab" -->
+        <label for="nombre">Nombre</label>                          <!--Uso de LABEL correcto-->
+        <input type="text" name="nombre" id=""><br/>                <!--Emmet-> "input:text + tab" -->
         Apellido<input type="text" name="apellido" id=""><br/>
         Edad <input type="text" name="edad" id="">
         Email<input type="email" name="email" id=""><br/>
         Genero <br/>
+
+        <!--BOTONES : type , value, name-->
         <input type="radio" name="genero" value="mujer" id="">Mujer <br/>
         <input type="radio" name="genero" value="hombre" id="">Hombre <br/>
         <input type="radio" name="genero" value="no aporta" id="">No aporta <br/>
         <hr/>
-
         Estudios <br/>
         <select name="estudios" id="">
             <option value="eso">ESO</option>
@@ -39,7 +41,6 @@ Tener cuidado.  **** */
             <option value="GRADO">GRADO</option>
         </select>
         <br/>
-
         Idiomas <br>
         <!--Especificar que idiomas es un array de datos. En la visualizacion diremos que es un array-->
         <input type="checkbox" name="idiomas[]" value="ingles" id="">Inglés <br/>

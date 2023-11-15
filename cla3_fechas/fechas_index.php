@@ -1,29 +1,28 @@
 <?php
-//Funcion time
-$segundos = time();
+/***FUNCIONES CON FECHAS Y TIEMPO */
+
+//***** TIME
+$segundos = time(); //retorna el número de segundos transcurridos desde el 1 de Enero de 1970 00:00:00 GMT. uNIX
 echo "<h2>$segundos</h2>";
 
-
-//date
-
-$dia_actual = date("d"); //sacar dia actual
-
+//***** DATE (format, time)
+$dia_actual = date("d");                        //sacar dia actual
 date_default_timezone_set('Europe/Madrid');  //coge la zona horaria del madrid
-$fecha_actual = date("d-m-y H:i:s", time() );
-$fecha_25h = date("d-m-y H:i:s", time() + (25*60*60));
+$fecha_actual = date("d-m-y H:i:s", time());   //formato de tiempo
+$fecha_25h = date("d-m-y H:i:s", time() + (25 * 60 * 60)); //timestamp
 echo "<h2>$fecha_actual</h2>";
 
-//transformar valores a date
-$fecha="01/09/1991";
-$timestamp_nacimiento= strtotime("$fecha"); //parseasr  string a marca tiempo
+//***** STRTOTIME() : transformar valores a date
+$fecha = "01/09/1991";
+$timestamp_nacimiento = strtotime("$fecha"); //parsear  string a marca tiempo
 echo "<h2> Segundos hasta $fecha son $timestamp_nacimiento</h2>";
 
 //calcular tiempo desde mi nacimiento
-$segundos_vida = time()-$timestamp_nacimiento;
+$segundos_vida = time() - $timestamp_nacimiento;
 echo "<h2> Segundos desde nacimiento $fecha son $segundos_vida </h2>";
 
-
 //modo calculando desde segundos
+
 /*$anos_vida = $segundos_vida / (60*60*24*365);
 $resto = $segundos_vida%(60*60*24*365);
 echo "<h2> Años desde nacimiento $fecha son $anos_vida </h2>"
@@ -32,32 +31,22 @@ $dias_vida = $resto / (60*60*24);
 $resto = $segundos_vida%(60*60*24*365);*/
 
 //modo fechas actuales
-
 $dia_actual = date("d"); //sacar dia actual
-$mes_actual = date("m"); //sacar dia actual
-$year_actual = date("Y"); //sacar dia actual
+$mes_actual = date("m"); //sacar mes actual
+$year_actual = date("Y"); //sacar anyo actual
 
 $dia_naci = "01";
 $mes_naci = "12";
 $year_naci = "1991";
 
-$year = $year_actual-$year_naci;
-$year = $mes_naci > $mes_actual? $year-1:$year;
-if (($mes_naci == $mes_actual) && ($dia_naci>$dia_actual))
+$year = $year_actual - $year_naci;
+$year = $mes_naci > $mes_actual ? $year - 1 : $year; //ternario si calcular
+if (($mes_naci == $mes_actual) && ($dia_naci > $dia_actual))
     $year--;
-
-$mes = $mes_actual-$mes_naci;
+$mes = $mes_actual - $mes_naci;
 if ($mes <= 0)
     $mes = 0;
-
-
 echo "<h2> Años desde nacimiento $fecha son año $year, mes  $mes</h2>";
-
-
-
-
-
-
 ?>
 
 <!doctype html>
@@ -73,15 +62,15 @@ echo "<h2> Años desde nacimiento $fecha son año $year, mes  $mes</h2>";
 <hr>
 <h1>Zonas horarias</h1>
 
-<h3><a href="spain.php"> En España </a> </h3>
-<h3><a href="canarias.php"> En Canarias </a> </h3>
-<h3><a href="austria.php"> En Austria </a> </h3>
-<h3><a href="spain.php"> En España </a> </h3>
-<h3><a href="spain.php"> En España </a> </h3>
+<h3><a href="spain.php"> En España </a></h3>
+<h3><a href="canarias.php"> En Canarias </a></h3>
+<h3><a href="austria.php"> En Austria </a></h3>
+<h3><a href="spain.php"> En España </a></h3>
+<h3><a href="spain.php"> En España </a></h3>
 
-<h2>Segundos después del 1/1/1970 a las 0:0 <span style = "color:#0051ff"> <?= $fecha_actual?> </span> </h2>
-<h2>Segundos  <span style = "color:#0051ff"> <?= $fecha_actual?> </span> </h2>
-<h2>Segundos 25 HORAS  <span style = "color:#0051ff"> <?= $fecha_25h?> </span> </h2>
+<h2>Segundos después del 1/1/1970 a las 0:0 <span style="color:#0051ff"> <?= $fecha_actual ?> </span></h2>
+<h2>Segundos <span style="color:#0051ff"> <?= $fecha_actual ?> </span></h2>
+<h2>Segundos 25 HORAS <span style="color:#0051ff"> <?= $fecha_25h ?> </span></h2>
 <hr>
 
 </body>

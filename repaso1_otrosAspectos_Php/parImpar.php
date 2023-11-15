@@ -7,8 +7,6 @@ $a = rand(1, 100); // Genero num aleatorio entre 1- 100
 $fecha = date("d m Y", time()); //Obtenemos la fecha
 $title =  "Hoy , $fecha, veremos si '$a' es par o impar "; //titulo
 $msj = ($a % 2 == 0) ? "El número $a es par" : "El número $a es impar";
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

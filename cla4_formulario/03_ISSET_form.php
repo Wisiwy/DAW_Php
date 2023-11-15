@@ -1,25 +1,15 @@
 <?php
 echo "<h1>PHP</h1>";
-/*FORMULARIO
-*el cliente puede aportar datos variable valor. */
+/****METODO GET /POST :
+ *El usuario aporta info variable-valor.
+ *Lo recogemos con metodos GET o POST (más seguro) */
 
-
-/*$submit = $_GET['submit'];
-$nombre = $_GET['nombre'];
-
-$msj = "Estoy aquí porque me han solicitado por URL";
-$msj = "Estoy aquí porque me han solicitado a traves de un formulario. ";*/
-
-//COMPROBAR SI ESTAMOS POR HABER PULSADO EL SUBMIT
-if (isset($_GET['submit']))
+/******ISSET: Comprobar si venimos del submit.*/
+if (isset($_POST['submit']))
     $msj = "Estoy aquí porque me han solicitado a traves de un formulario. ";
 else
     $msj = "Estoy aquí porque me han solicitado por URL";
-
-/*echo "<h3>$msj</h3>";
-echo "<h3>Valor de submit: $submit</h3>";
-echo "<h3>Valor de nombre: $nombre</h3>";*/
-
+echo "<h3>$msj</h3>";
 echo "<hr>"
 ?>
 
@@ -45,15 +35,15 @@ echo "<hr>"
         Name: recuperar valor en el servidor. -->
 
         <!--*****EJERCICIO formulario de Datos Personales*****-->
-<!--Diferentes inputs: -->
+        <!--Diferentes inputs: -->
         <legend>Datos personales</legend>
         Nombre (type text) <input type="text" name="nombre" id="">
         Apellido (type text) <input type="text" name="apellido" id="">
         Email (type email)<input type="emaill" name="email" id="">
         Genero (radip)<br>
-            <input type="radio" name="genero" value="mujer" id="">Mujer<br/>
-            <input type="radio" name="genero" value="hombre" id="">Hombre<br/>
-            <input type="radio" name="genero" value="no aporta" id="">No aporta<br/>
+        <input type="radio" name="genero" value="mujer" id="">Mujer<br/>
+        <input type="radio" name="genero" value="hombre" id="">Hombre<br/>
+        <input type="radio" name="genero" value="no aporta" id="">No aporta<br/>
         <hr>
         <select name="estudios" id=""
 

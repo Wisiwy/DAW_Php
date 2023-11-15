@@ -1,5 +1,6 @@
 <?php
-//controlador: todo lo que tenga ver con php
+/*GENERAR TABLA ASCCI*/
+    //CONTROLADOR: todo lo que tenga ver con php
 echo "hola";
 $html_contenido = "";
 for ($n = 33; $n < 164; $n++)
@@ -12,7 +13,7 @@ for ($n = 33; $n < 164; $n++)
         </tr>";
 
 ?>
-//vista
+<!--VISTA-->
 <!doctype html>
 <html lang="en">
 
