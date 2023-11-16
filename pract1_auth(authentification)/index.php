@@ -1,7 +1,7 @@
 <?php
 ini_set("display_errors", true);
 error_reporting(E_ALL);
-function valida_usuario()
+function    valida_usuario()
 {
     if (isset($_POST['submit'])) {
         //Validamos
