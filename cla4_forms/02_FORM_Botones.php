@@ -17,7 +17,10 @@ Tener cuidado.  **** */
 <body>
 <form action="02_FILTRAR_Datos.php" method="POST">
     <!--Archivo donde voy a guardar los datos enviados
-    methos: POST. Por el que se pasan los datos. -->
+    methos: POST. Por el que se pasan los datos.
+     type= "hidden,submit" //name= "nombre" // value= "valor a pasar"-->
+
+
     <fieldset>
         <legend>Datos personales</legend>
         <label for="nombre">Nombre</label>                          <!--Uso de LABEL correcto-->

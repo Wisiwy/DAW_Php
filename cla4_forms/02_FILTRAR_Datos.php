@@ -5,7 +5,7 @@ $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $genero = $_POST['genero'];
 $estudios = $_POST['estudios'];
-$idiomas = $_POST['idiomas'];
+$idiomas = $_POST['ej8_idiomas'];
 
 /******SEGURIDAD FILTRAR DATOS*/
 /*filter_var($variable, $filtro)
