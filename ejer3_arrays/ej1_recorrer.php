@@ -35,15 +35,31 @@ var_dump($varicoki1);
 
 //Eliminamos los índices vacíos de forma que quede compacto(sin usar funciones)
 //Es decir las desaparecen las posiciones 15 y 30 //Sus valores se mantienen en las posicones 5 y 6
-$i = 0;
-foreach ($varicoki1 as $valor =>) {
+/*$i = 0;
+foreach ($varicoki1 as $valor) {
     $valorAux = $valor;
-    if (!is_null($valor[$i])) {
+    if (!empty($valor[$i])) {
         $varicoki1[$i] = $valorAux;
-        echo "valor[$i]: $varicoki1[$i] // valor: $valor <br>";
-        $i++;
     }
-    unset($varicoki1[$valor]);
+    echo "valor[$i]: $varicoki1[$i] // valor: $valor <br>";
+    $i++;
+    /*else {
+        unset($varicoki1[$valor]);
+    }
+    //COMO RECOjo la posicion de $valor recoger el [15]del valor
 }
+var_dump($varicoki1); */
+echo "SOL Array Aux ";
+$varicoki1Compacto = [];
+// Recorremos el array original y agregamos los valores no vacíos al nuevo array
+foreach ($varicoki1 as $valor) {
+    if (!empty($valor)) {
+        $varicoki1Compacto[] = $valor;
+    }
+}
+
+// Asignamos el nuevo array a la variable original para compactarla
+$varicoki1 = $varicoki1Compacto;
 var_dump($varicoki1);
+
 

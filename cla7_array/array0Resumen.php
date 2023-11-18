@@ -46,7 +46,7 @@ $size = sizeof($notas2);
 var_dump($size);
 $size = count($notas2);
 var_dump($size);
-echo "valor de posición 0 es $notas3[0]";
+echo "valor de posición 0 es $notas2[0]";
 
 //OTRAS FUNCIONES
 /* current() - Devuelve el elemento actual en un array

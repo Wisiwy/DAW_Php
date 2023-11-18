@@ -3,19 +3,21 @@
 //Guarda clase en un fichero en MAYUSCULA. Identificar clases.
 class Fecha
 {
-    //atributos
+    //***ATRIBUTOS o PROPIEDADES
+
+    //*ENCAPSULACION : private, public o protected.
     //es obligatorio especificar el alcance, desde donde puedo ver los atributos: privados, publicos
-    //BUENAS PRÁCTICAS: Por defecto private
-    //private nos permite crear clases integras, controlar el tipo de dato que introducimos, controlar el
-    //seteo de valore, inyectar el dato correcto
+    //BUENAS PRÁCTICAS: por defecto atributos private, metodos public
+    //PRIVATE nos permite crear clases integras, controlar el tipo de dato que introducimos, controlar el
+    //seteo de valores, inyectar el dato correcto.
     private $dia;
     private $mes;
     private $year;
 
-    //metodos
-
-    //constructor. Php no permite polimorfismos. Dos metodos con el mismo nombre
-    //No permite varios constructore. Solución MÉTODOS MÁGICOS(__doble subrayado.
+    //***METODOS MÁGICOS
+    //métodos por defecto son públicos,
+    //constructor. Php NO permite polimorfismos. Dos metodos con el mismo nombre
+    //No permite varios constructore. Solución MÉTODOS MÁGICOS "__doble subrayado".
 
     //POLIMOFISMO: si ponemos null no falla y acepta las cosas
     public function __construct($dia = null, $mes = null, $year = null)
@@ -27,7 +29,7 @@ class Fecha
             $year = $fecha[2];
 
         }
-        //En php los objetos son direcciones de memoria.
+        //PHP Almacena el valor de un objeto como una referencia (dirección de memoria), no guarda el valor.
         $this->dia = ($dia == null) ? date("d") : $dia; //this. es obligatorio en Php. Referencia al objeto de la clase cuando lo instancie
         $this->mes = ($mes == null) ? date("m") : $mes;
         $this->year = ($year == null) ? date("Y") : $year;

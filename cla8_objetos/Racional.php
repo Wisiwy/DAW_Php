@@ -9,8 +9,6 @@ class Racional
 
     /*//Explicar los atributos estaticos.Son elementos de la clase no del objeto
     El objeto puede acceder a su valor pero no es parte del objeto
-
-
     */
     public static $cuenta_racionales = 0;
 
@@ -35,13 +33,10 @@ class Racional
         self::$cuenta_racionales--;
 
     }
-
     public function __toString(): string
     {
         return "$this->numerador/$this->denominador";
     }
-
-
     public function visualiza()
     {
         return "$this->numerador/$this->denominador";
@@ -86,7 +81,6 @@ class Racional
         $mcd = $this->mcd($this->numerador, $this->denominador);
         return new Racional($this->numerador / $mcd, $this->denominador / $mcd);
     }
-
     /**
      * Funcion recursiva para calcular maximo comun divisor
      * @param $n1
