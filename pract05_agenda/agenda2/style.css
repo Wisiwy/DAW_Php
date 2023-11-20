@@ -1,0 +1,91 @@
+/*background: rgba(145, 1, 84, 0.89);
+color: #f4adfd;*/
+
+
+body {
+    margin: 2%;
+    border-radius: 30%;
+    background: antiquewhite;
+    border-radius: 12px;
+}
+
+h1, h2, h3 {
+    font-family: Inconsolata, serif;
+    align-self: center;
+
+}
+
+header {
+    padding: 10px;
+    background: rgba(145, 1, 84, 0.89);
+    color: #f4adfd;
+    font-size: 20pt;
+    text-align: center;
+
+}
+
+main {
+    display: flex;
+    background: #f4adfd;
+}
+
+section {
+    width: 33%;
+    padding: 3%;
+}
+
+#nuevo_contacto {
+}
+
+/*FORM */
+fieldset {
+    border: 2px solid rgba(145, 1, 84, 0.89); /* Ancho y color del borde */
+}
+
+legend {
+    color: rgba(145, 1, 84, 0.89);
+}
+
+label {
+    color: #f4adfd;
+    font-size: 10pt;
+}
+
+/*LISTA DE CONTACTOS*/
+#lista_contactos {
+    color: rgba(145, 1, 84, 0.89);
+    align-content: center;
+    justify-content: center;
+}
+
+#lista_contactos > hr {
+    border: 2px solid rgba(145, 1, 84, 0.89); /* Ancho y color del borde */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Combina los bordes de las celdas */
+    border: 1px solid rgba(145, 1, 84, 0.89);
+    color: rgba(145, 1, 84, 0.89);
+}
+
+th, td {
+    border: 1px solid rgba(145, 1, 84, 0.89); /* Establece un borde de 1 píxel con color gris claro */
+    padding: 8px; /* Añade espacio interno para que el contenido no toque el borde */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+th{
+    text-align: center;
+    font-size: larger;
+}
+
+/*MENSAJE*/
+#mensaje {
+    align-self: center;
+    align-content: center;
+    margin: 2%;
+    padding: 2%;
+    color: rgba(145, 1, 84, 0.89);
+
+
+}

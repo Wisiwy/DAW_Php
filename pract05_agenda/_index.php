@@ -66,7 +66,7 @@ function validaDatos($agenda, $nombre, $telefono): int|null
 
 <h1>Agenda de contactos: <?= $cuentaContactos ?></h1>
 <!--Formulario "Nuevo Contacto-->
-<form action="index.php" method="post">
+<form action="_index.php" method="post">
     <fieldset>
         <legend><em>Nuevo Contacto</em></legend>
         <h2><span style="color: red"><?= $msjError ?></span></h2>

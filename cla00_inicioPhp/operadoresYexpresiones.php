@@ -14,6 +14,7 @@ $num = 5 + (6 * 8) - (4 / 2);
 $num = 5 + 48 - 2;
 $num = 53 - 2;
 echo "<h1>Valor de número $num</h1>";
+
 /**AUTOINCREMENTO Y Decremento*/
 //-PRE, primero incrementa y luego toma el valor
 $a=5;

@@ -30,3 +30,15 @@ $edad = filter_input(INPUT_POST, 'edad', FILTER_VALIDATE_INT); //Filtra que sea 
 https://www.php.net/manual/es/function.header.php */
 header ("Refresh:5; url=URL_de_la_pagina");
 exit();
+
+
+/****MATCH
+ * operador contro*/
+$numero_mes = rand(1,4);
+$nombre_mes = match ($numero_mes){
+    1=>"Enero",
+    2=>"Febrero",
+    3=>"Marzo",
+    default => "Mes incorrecto"
+};
+echo "El mes $numero_mes es $nombre_mes <br>";
