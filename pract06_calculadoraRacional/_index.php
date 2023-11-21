@@ -1,7 +1,9 @@
 <?php
 
+//Carga todas las clases al index del mismo namespace
 $carga = fn($clase) => require "class/$clase.php";
 spl_autoload_register($carga);
+
 if(isset($_POST['submit']))  {
     $cadena = $_POST['operacion'];
     $tipo_operacion = Operacion::tipo_operacion($cadena);
@@ -10,12 +12,14 @@ if(isset($_POST['submit']))  {
             //Realizar validacion de la operacion. Mostrar mensaje
             $msj=  "$cadena es una operacion RACIONAL";
             $operacion = new OperacionRacional($cadena);
-            $rtdo = $operacion->opera();
+            $rtdo = $operacion->operar();
+            $msj2= $rtdo;
             break;
         case Operacion::OPERACION_REAL:
             $msj =  "$cadena es una operacion REAL";
             $operacion = new OperacionReal($cadena);
-            $rtdo = $operacion->opera();
+            $rtdo = $operacion->operar();
+            $msj2= $rtdo;
             break;
         case Operacion::ERROR:
             $msj = "Operación con $cadena errónea";
@@ -71,7 +75,8 @@ if(isset($_POST['submit']))  {
     <fieldset id=rtdo><legend>Resultado</legend>
         <label></label>
         <h3>Cadena: <?=$cadena?></h3>
-        <h2>RESULTADO: <?=$msj?></h2>
+        <h3>RESULTADO: <?=$msj?></h3>
+        <h3>NUMERO: <?=$msj2?></h3>
     </fieldset>
 </main>
 

@@ -1,11 +1,7 @@
 <?php
 
-namespace class;
-
-class OperacionRacional extends \class\Operacion
+class OperacionRacional extends Operacion
 {
-
-
     public function __construct($cadena)
     {
         parent::__construct($cadena);
@@ -16,19 +12,26 @@ class OperacionRacional extends \class\Operacion
 
     function operar()
     {
+        $retorno = null;
         switch ($this->operador) {
             case '+':
-                return $this->op1->sumar($this->op2);
+                $retorno = $this->op1->sumar($this->op2);
+                break;
             case '-':
-                return $this->op1->restar($this->op2);
+                $retorno= $this->op1->restar($this->op2);
+                break;
             case '*':
-                return $this->op1->multiplicar($this->op2);
+                $retorno= $this->op1->multiplicar($this->op2);
+                break;
             case '/':
-                return $this->op1->dividir($this->op2);
-        }
+                $retorno= $this->op1->dividir($this->op2);
+                break;
 
-        // TODO: Implement operar() method.
+        }
+        return $retorno;
+
     }
+
     public function __toString(): string
     {
         return parent::__toString();

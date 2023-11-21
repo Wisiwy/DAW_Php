@@ -1,7 +1,6 @@
 <?php
 //Crearemos una clase operacion real y racional para Realizar los calculos.
 
-namespace class;
 
 abstract class Operacion
 {
@@ -17,7 +16,7 @@ abstract class Operacion
      */
     public function __construct(int|string $cadena)
     {
-        $this->operador = $this->buscaOperador($cadena);
+        $this->operador = $this->busca_operador($cadena);
         $numero = explode($this->operador, $cadena);
         $this->op1 = $numero[0];
         $this->op2 = $numero[1];
@@ -30,8 +29,8 @@ abstract class Operacion
         $numeroEntero = "[0-9]+";
         $numeroReal = "$numeroEntero(\.[0-9]+)?";
         $numeroRacional = "$numeroEntero\/[1-9]+[0-9]*"; //*le indicamos que 0 o mas . Puede no estar el [0-9].
-        $operadorReal = "[\-\+\*\:]";
-        $operadorRacional = "[\-\+\*\/]";
+        $operadorReal = "[\-\+\*\/]";
+        $operadorRacional = "[\-\+\*\:]";
 
         $operacionReal = "^$numeroReal$operadorReal$numeroReal$";
         $operacionRacional = "^$numeroRacional$operadorRacional$numeroRacional$";
@@ -51,22 +50,22 @@ abstract class Operacion
 //La operacion puede ser real o racional. Tendremos clases para las dos posibilidades
     abstract function operar();
 
-    private function buscaOperador($cadena)
+    private function busca_operador($cadena)
     {
         //Mejor jugar con una variable un solo retorno
         $retorno = "/";
         if (str_contains($cadena, '+'))
-            $retorno '+';
+            $retorno = '+';
         if (str_contains($cadena, '-'))
-            $retorno '-';
+            $retorno = '-';
         if (str_contains($cadena, '*'))
-            $retorno '*';
+            $retorno = '*';
         if (str_contains($cadena, ':'))
-            $retorno ':';
+            $retorno = ':';
         //Tiene que ser la ultima porque puede ser parte del
         // numero tiene que ser la última la única que queda.
         if (str_contains($cadena, '/'))
-            $retorno '/';
+            $retorno = '/';
         return $retorno;
 
     }
