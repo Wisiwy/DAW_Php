@@ -1,4 +1,7 @@
 <?php
+
+use class\Racional;
+
 require_once "Racional.php";
 //clase RACIONAL
 $r1 = new Racional(); //

@@ -1,10 +1,13 @@
 <?php
-isset($_POST['submit']){
+
+$carga = fn($clase) => require "class/$clase.php";
+spl_autoload_register($carga);
+if(isset($_POST['submit']))  {
     $cadena = $_POST['operacion'];
     $tipo_operacion = Operacion::tipo_operacion($cadena);
     switch ($tipo_operacion) {
         case Operacion::OPERACION_RACIONAL:
-            //Realizar validadcion de la operacion. Mostrar mensaje
+            //Realizar validacion de la operacion. Mostrar mensaje
             $msj=  "$cadena es una operacion RACIONAL";
             $operacion = new OperacionRacional($cadena);
             $rtdo = $operacion->opera();
@@ -15,7 +18,7 @@ isset($_POST['submit']){
             $rtdo = $operacion->opera();
             break;
         case Operacion::ERROR:
-            $rtdo = "Operación errónea";
+            $msj = "Operación con $cadena errónea";
             break;
     }
 }
@@ -26,7 +29,7 @@ isset($_POST['submit']){
 <head>
     <meta charset="UTF-8">
     <title>Calculadora</title>
-    <link rel="stylesheet" type="text/css" href="Style/estilo.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" media="screen" />
 </head>
 <body>
 <header>
@@ -58,15 +61,17 @@ isset($_POST['submit']){
 <main>
     <fieldset>
         <legend>Establece la operación</legend>
-        <form action="." method="post">
+        <form action="_index.php" method="post">
             <label for="operacion">Operación</label>
             <input type="text" name="operacion" id="">
-            <input type="submit" name="enviar" value="Calcular">
+            <input type="submit" name="submit" value="Calcular">
         </form>
     </fieldset>
 
     <fieldset id=rtdo><legend>Resultado</legend>
         <label></label>
+        <h3>Cadena: <?=$cadena?></h3>
+        <h2>RESULTADO: <?=$msj?></h2>
     </fieldset>
 </main>
 

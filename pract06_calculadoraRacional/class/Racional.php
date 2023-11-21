@@ -18,7 +18,7 @@ class Racional
         if (is_string($numerador)) {
             $racional = explode("/", $numerador);
             $numerador = $racional[0];
-            $denominador = $racional[1];
+            $denominador = $racional[1] ?? "1"; //si no le pasamos le damos uno
 
         }
         $this->numerador = ($numerador == null) ? 1 : $numerador; //podemos especificarlo en el constructor
@@ -33,10 +33,12 @@ class Racional
         self::$cuenta_racionales--;
 
     }
+
     public function __toString(): string
     {
         return "$this->numerador/$this->denominador";
     }
+
     public function visualiza()
     {
         return "$this->numerador/$this->denominador";
@@ -45,42 +47,43 @@ class Racional
     /**
      * @return void
      */
-    public function sumar(class\Racional $r2): class\Racional
+    public function sumar(Racional $r2): Racional
     {
         $num = ($this->numerador * $r2->denominador) + ($this->denominador * $r2->numerador);
         $den = $this->denominador * $r2->denominador;
-        return new class\Racional($num, $den);
+        return new Racional($num, $den);
     }
 
-    public function restar(class\Racional $r2): class\Racional
+    public function restar(Racional $r2): Racional
     {
         $num = ($this->numerador * $r2->denominador) - ($this->denominador * $r2->numerador);
         $den = $this->denominador * $r2->denominador;
-        return new class\Racional($num, $den);
+        return new Racional($num, $den);
     }
 
-    public function multiplicar(class\Racional $r2): class\Racional
+    public function multiplicar(Racional $r2): Racional
     {
         $num = $this->numerador * $r2->numerador;
         $den = $this->denominador * $r2->denominador;
-        return new class\Racional($num, $den);
+        return new Racional($num, $den);
     }
 
-    public function dividir(class\Racional $r2): class\Racional
+    public function dividir(Racional $r2): Racional
     {
         $num = $this->numerador * $r2->denominador;
         $den = $this->denominador * $r2->numerador;
-        return new class\Racional($num, $den);
+        return new Racional($num, $den);
     }
 
     /**Simplificar al operacion .
-     * @return \class\Racional
+     * @return Racional
      */
     public function simplifica()
     {
         $mcd = $this->mcd($this->numerador, $this->denominador);
-        return new class\Racional($this->numerador / $mcd, $this->denominador / $mcd);
+        return new Racional($this->numerador / $mcd, $this->denominador / $mcd);
     }
+
     /**
      * Funcion recursiva para calcular maximo comun divisor
      * @param $n1

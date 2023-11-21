@@ -1,0 +1,96 @@
+body {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Ubuntu, 'Segoe UI', Arial, sans-serif;
+    color: #212529;
+}
+
+header {
+    margin-bottom: -20px;
+}
+
+main, aside {
+    float: left;
+    width: 48%;
+    margin: 1%;
+    margin-top: 0;
+}
+
+footer {
+    width: 100%;
+    font-size: 0.8em;
+    color: #666;
+    text-align: right;
+    clear: both;
+}
+
+fieldset {
+    padding: 3%;
+    border-radius: 10px;
+    margin: 20px auto;
+    background-color: #eee;
+    border: 2px solid #0b5485;
+}
+
+input[type=submit] {
+    font-size: 1em;
+    padding:5px 15px;
+    border:2 ;
+    background:#ccc;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+legend{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: white;
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    color: white;
+    background-color: #0b5485;
+}
+
+td:first-child {
+    font-weight: 700;
+}
+
+td:nth-child(2) {
+    text-align: center;
+}
+
+/*-------------------------------------------------*/
+
+.destacado {
+    color: #0b5485;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.destacado span {
+    color: black;
+    font-size: 20px;
+}
+
+/*-------------------------------------------------*/
+
+@media (max-width: 1080px) {
+    main, aside {
+        float: left;
+        width: 100%;
+        margin: 1% auto;
+    }
+}
