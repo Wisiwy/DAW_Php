@@ -1,0 +1,24 @@
+{
+  "name": "vendor_name/cla11_composer",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "alumno",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "classmap": ["class"],
+    "psr-4": {
+      "controladores\\": "class/controladores",
+      "modelos\\": "class/modelos",
+      "plantillas\\": "class/plantillas",
+      "privadas\\": "class/privadas",
+      "publicas\\": "class/publicas"
+    }
+  }
+}

@@ -2,7 +2,12 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/ejer04_objetos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/controladores" isTestSource="false" packagePrefix="controladores\" />
+      <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/modelos" isTestSource="false" packagePrefix="modelos\" />
+      <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/plantillas" isTestSource="false" packagePrefix="plantillas\" />
+      <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/privadas" isTestSource="false" packagePrefix="privadas\" />
+      <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/publicas" isTestSource="false" packagePrefix="publicas\" />
+      <excludeFolder url="file://$MODULE_DIR$/cla11_composer/vendor/composer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

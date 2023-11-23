@@ -34,7 +34,7 @@ switch ($idioma) {
         $frances = "Frances";
         $espanyol = "Español";
         $submitName = "Selecciona";
-        $datosAcceso = "Datos de acceso";
+        $datosAcceso = "datos de acceso";
         $insertaNombre = "Inserta tu nombre";
         $submitName2 = "Acceder";
         $checked_es="checked";

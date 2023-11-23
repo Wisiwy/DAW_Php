@@ -16,7 +16,7 @@ function    valida_usuario()
             header("location:sitio.php?nombre=$nombre&password=$password");
             exit(); //matar el script, por seguridad. después de un
         } else {
-            $msj = "Datos incorrectos"; //¿¿¿¿esta definida???
+            $msj = "datos incorrectos"; //¿¿¿¿esta definida???
             return $msj;
         }
     }
