@@ -10,9 +10,7 @@ if (isset($_POST['submit'])) {
 
     //**ACTUALIZAMOS VARIABLES
     $agenda = $_POST['agenda'] ?? [];
-    //$nombre = $_POST['nombre'] ?? '';
     $nombre = htmlspecialchars(filter_input(INPUT_POST, 'nombre')) ?? null;
-    //$telefono = $_POST['telefono'] ?? null;
     $telefono = filter_input(INPUT_POST, 'telefono') ?? null;
     $cuentaContactos = filter_input(INPUT_POST, 'cuentaContactos');
 
@@ -30,7 +28,7 @@ if (isset($_POST['submit'])) {
     //**ESCRIBIMOS FILAS DE LA TABLA
     $tablaContactos = dibujaContactos($agenda);
 
-    //**ACTIVAMOS BOTON
+    //**ACTIVAMOS BOTON ELIMINAR AGENDA
     $activarBoton = (empty($agenda)) ? "disable" : "";
 }
 
@@ -38,8 +36,8 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['eliminar'])) {
     unset($agenda);
 }
-var_dump($agenda);
-/*FUNCIONES*/
+
+/******************************************************FUNCIONES****************************************************/
 
 /**FUNCION VALIDAR DATOS
  * @param $nombre
@@ -68,9 +66,7 @@ function validarDatos($nombre, $telefono): int|null
  */
 function addContacto(mixed $agenda, ?string $nombre, int $cuentaContactos, mixed $telefono): array
 {
-    echo "addContacto " . $telefono;
-    var_dump($telefono);
-//si esta agenda miramos si hay o no telefno
+//si el contacto proporcionado esta en la agenda miramos si hay o no telefono
     if (isset($agenda[$nombre])) {
         if (empty($telefono)){
             unset($agenda[$nombre]);
@@ -88,7 +84,7 @@ function addContacto(mixed $agenda, ?string $nombre, int $cuentaContactos, mixed
     return array($msj, $agenda, $cuentaContactos);
 }
 
-/**DIBUJAR CONTACTOS : dibuja las filas de la tabla con los contactos
+/**DIBUJAR CONTACTOS: dibuja las filas de la tabla con los contactos
  * @param $agenda
  * @return string
  */
