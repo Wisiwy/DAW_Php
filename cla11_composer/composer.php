@@ -31,7 +31,7 @@
     -Especificar ALIAS**: use \controladores\A;
 4. PSR 4.
     -Necesario add "namespaces":
-        -en vendor auto load incluir "psr-4":{ 'especificar los namespaces'}
+        -en vendor autoload incluir "psr-4":{ 'especificar los namespaces'}
     -no hace falta 'composer update' se actualiza solo.
     -Uso de clase del mismo namespace no hace falta ruta.
 */
