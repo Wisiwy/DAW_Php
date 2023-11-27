@@ -7,7 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/plantillas" isTestSource="false" packagePrefix="plantillas\" />
       <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/privadas" isTestSource="false" packagePrefix="privadas\" />
       <sourceFolder url="file://$MODULE_DIR$/cla11_composer/class/publicas" isTestSource="false" packagePrefix="publicas\" />
+      <sourceFolder url="file://$MODULE_DIR$/cla13_cookies/Formulario_Cookies/Utilidades" isTestSource="false" packagePrefix="Utilidades\" />
       <excludeFolder url="file://$MODULE_DIR$/cla11_composer/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/cla13_cookies/Formulario_Cookies/vendor/composer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

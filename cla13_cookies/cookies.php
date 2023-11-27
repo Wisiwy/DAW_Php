@@ -1,41 +1,64 @@
-<!--COOKIES
-Archivos parejas variable valor que el servidor escribe en el cliente. Dar permisos para escribir cookies.
-Cliente hace petición y servidor devuelve la pagina y una cookie (variable-valor). La próxima vez que se solicita
-la página se entrega también el archivo devuelve variable valor. Servidor lee cookies (idioma="frances") y devuelve con
-esa información.
-En función de las cookies se mejora la experiencia de usuario.
-Una cookie no puede guardar objetos solo guarda strings
+<!--******COOKIES******
+    -Fichero que escribe el servidor y almacena en el cliente con información de este.
+    -Ficheros texto con parejas variable - valor.
+    -Cliente hace petición al servidor y este devuelve la página y una cookie con
+     info de preferencias del cliente (variable - valor)
+        Ej. idioma=frances, la próxima sesión se abrira en Francés el sitio.
+    -Necesita permisos y mejora la experiencia de usuario.
+    -No guarda objetos solamente strings.
+
+ ****VIDA COOKIES: PROCESO
+1. Usuario solicita recurso web al servidor
+    -Junto con solicitud se envian las cookies que el servidor hubiera escrito
+    en ese cliente. Solo escritas por servidor.
+2. Servidor entrega recurso
+    -Servidor analiza los valores de las cookies.
+    -Personaliza la página segun las cookies.
+
+ ****PUNTOS IMPORTANTES
+ 1. Cookie no almacena objetos solo STRING
+ 2. Necesario PERMISO para escribir en cliente.
+ 3. Solo puede ser LEIDA por el servidor que la creó.
+
+-------------------- TRABAJAR CON COOKIES ---------------------------
+***CREAR cookie . setcookie()
+¡CUIDADO! Seteo y borrado tendrá efecto cuando el cuando el cliente reentregue la página al cliente:
+    3 primero parámetros (llega hasta 7 parámetros) :
+        setcookie(Nombre_cookes, Valor_cookies, tiempo_vida);
+        setcookie("usuario", $_SERVER['PHP_AUTH_USER'], time()+3600);
+
+****RECUPERAR Cookie $_COOKIE[]
+    -$_COOKIE[nombre_cookie];
+    -$usuario = $_COOKIE['usuario'];
+
+****BORRAR Cookie
+    // Ponemos un tiempo de expiración negativo
+    setcookie("user", "", time()-3600);
+
+
 -->
-<!--/*Función setcookie(). Se setea y se borra la cookie, tendra efecto cuando servido rentrege la pagina al cliente.
-¡CUIDADO!. 3 primeros parámetros:
-setcookie(Nombre_cookes, Valor_cookies, tiempo_vida) //    setcookie("usuario", $_SERVER['PHP_AUTH_USER'], time()+3600);
-
---RECUPERAR COOKIE ($__COOKIE)
-$usuario = $_COOKIE[nombre_cookie];
-*/
-/*.................................*/
-/*cookie en que hora se ha contextado*/
-
-/*COOKIE GUARDA MOMENTO CONEXION Y DURA 30 SEC
-setcookie("conexion", $timestamp, time()+30);*/-->
 
 <?php
+/*
+ ******EJEMPLOS de COOKIES***
+    //Guardar momento de conexion y duración de 30sec.
+    $timestamp=time();
+    setcookie("conexion", $timestamp, time()+30);
+*/
 
-/*COOKIE guarda cada peticion al servidor*/
-
-//serialize() - convertir de string a objetos
-
-//leer cookies de conexion. cookie es array
-
-//esto no nos vale
+//*****COOKIE guarda cada peticion al servidor
 //$conexionCookie = $_COOKIE("conexion") ?? []; //Array vacio. Si esta vacia la cookie.
-
+//la linea anterior no vale porque seguiremos guardando conexiones
 if (isset($_COOKIE['conexion']))
+    //leer cookies de conexion. cookie es array
+    //serialize() - convertir de string a objetos
     $conexiones = unserialize($_COOKIE['conexion']);
 else
+    //si no esta seteada creamos el array vacio
     $conexiones =  [];
 var_dump($conexiones);
-//crear un mensaje con las cookies de conexion. Recollremos el array
+
+//crear un mensaje con las cookies de conexion. Recorremos el array.
 $html_msj = "";
 foreach ($conexiones as $index => $conexion){
     $html_msj .= "<h3>Conexion $index: ".date("d/m/y h:i:s", $conexion)."</h3>";

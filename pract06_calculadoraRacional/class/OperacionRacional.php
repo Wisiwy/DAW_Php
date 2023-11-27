@@ -18,16 +18,17 @@ class OperacionRacional extends Operacion
                 $retorno = $this->op1->sumar($this->op2);
                 break;
             case '-':
-                $retorno= $this->op1->restar($this->op2);
+                $retorno = $this->op1->restar($this->op2);
                 break;
             case '*':
-                $retorno= $this->op1->multiplicar($this->op2);
+                $retorno = $this->op1->multiplicar($this->op2);
                 break;
             case '/':
-                $retorno= $this->op1->dividir($this->op2);
+                $retorno = $this->op1->dividir($this->op2);
                 break;
 
         }
+
         return $retorno;
 
     }
