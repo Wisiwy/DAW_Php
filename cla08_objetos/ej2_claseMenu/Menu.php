@@ -5,6 +5,7 @@
 Permitir añadir diferentes opciones al menú, según necesitáramoss.
 Mostrar el menú en forma horizontal o vertical (según que método llamemos)*/
 
+namespace cla08_objetos\ej2_claseMenu;
 class Menu
 {
 
@@ -20,11 +21,13 @@ class Menu
     {
         $ori = strtolower($ori);
         if ($ori == 'v') {
-            $this->vertical( $titulo,  $opciones);
-        }else
-            $this->horizontal( $titulo,  $opciones);
+            $this->vertical($titulo, $opciones);
+        } else
+            $this->horizontal($titulo, $opciones);
     }
-    public function vertical(string $titulo, array $opciones ){
+
+    public function vertical(string $titulo, array $opciones)
+    {
         //menu vertical
         echo "<h3>$titulo vertical</h3>";
         echo "<ol>";
@@ -33,7 +36,9 @@ class Menu
         }
         echo "</ol>";
     }
-    public function horizontal(string $titulo, array $opciones ){
+
+    public function horizontal(string $titulo, array $opciones)
+    {
         echo "<h3>$titulo horizontal</h3>";
         foreach ($opciones as $opcion) {
             //Como coger la posicion en arrays. 

@@ -6,7 +6,7 @@ Definir un método inicializarlo para que lleguen como dato el nombre y sueldo.
 Plantear un segundo método que imprima el nombre y un mensaje si debe o no pagar impuestos
  (si el sueldo supera a 3000 paga impuestos)*/
 
-namespace ej1_claseEmpleado;
+namespace cla08_objetos\ej1_claseEmpleado;
 
 class Empleado
 {

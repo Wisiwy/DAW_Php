@@ -34,6 +34,13 @@
         -en vendor autoload incluir "psr-4":{ 'especificar los namespaces'}
     -no hace falta 'composer update' se actualiza solo.
     -Uso de clase del mismo namespace no hace falta ruta.
+
+"autoload":{
+    "psr-4":{
+         "Nombre_Espacio\\":"Dir_donde_están_las_clases"
+      }
+    }
+}
 */
 require "./vendor/autoload.php";
  use \controladores\A;

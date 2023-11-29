@@ -1,6 +1,8 @@
 <?php
 require "vendor/autoload.php";
-use Utilidades\Tabla;
+
+use class\Tabla;
+
 session_start();
 
 $opcion = $_POST['submit'] ?? null;

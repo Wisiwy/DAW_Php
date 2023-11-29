@@ -5,6 +5,7 @@
    El password ha de tener un mínimo de 8 caracteres y al menos un número
    Si no se crea la password se generará un mensaje de que no se ha podido crear el usuario con dichas credenciales*/
 
+namespace cla08_objetos\ej0_usuarioPass;
 class Usuario
 {
     private $usuario;
@@ -46,8 +47,9 @@ class Usuario
 
     public function show_error()
     {
-        return  $this->error;
+        return $this->error;
     }
+
     /**
      * @return string
      */
