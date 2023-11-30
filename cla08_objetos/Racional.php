@@ -3,7 +3,6 @@
 class Racional
 {
 //atributos
-
     private $numerador;
     private $denominador;
 
