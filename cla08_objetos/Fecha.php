@@ -5,7 +5,7 @@ class Fecha
 {
     //***ATRIBUTOS o PROPIEDADES
 
-    //*ENCAPSULACION : private, public o protected.
+    //***ENCAPSULACION : private, public o protected.
     //es obligatorio especificar el alcance, desde donde puedo ver los atributos: privados, publicos
     //BUENAS PRÁCTICAS: por defecto atributos private, metodos public
     //PRIVATE nos permite crear clases integras, controlar el tipo de dato que introducimos, controlar el
@@ -15,11 +15,11 @@ class Fecha
     private $year;
 
     //***METODOS MÁGICOS
-    //métodos por defecto son públicos,
+    //métodos por defecto son PUBLICOS,
     //constructor. Php NO permite polimorfismos. Dos metodos con el mismo nombre
     //No permite varios constructore. Solución MÉTODOS MÁGICOS "__doble subrayado".
 
-    //POLIMOFISMO: si ponemos null no falla y acepta las cosas
+    //***POLIMOFISMO: si ponemos null no falla y acepta las cosas
     public function __construct($dia = null, $mes = null, $year = null)
     {
         if (is_string($dia)) {

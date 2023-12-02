@@ -9,8 +9,10 @@ echo "<h2>$segundos</h2>";
 $dia_actual = date("d");                        //sacar dia actual
 date_default_timezone_set('Europe/Madrid');  //coge la zona horaria del madrid
 $fecha_actual = date("d-m-y H:i:s", time());   //formato de tiempo
-$fecha_25h = date("d-m-y H:i:s", time() + (25 * 60 * 60)); //timestamp
+$fecha_25h = date("d-m-y H:i:s", time() + (25 * 60 * 60)); //timestamp + 25 horas
 echo "<h2>$fecha_actual</h2>";
+echo "<h2>Fecha 25 h: $fecha_25h</h2>";
+
 
 //***** STRTOTIME() : transformar valores a date
 $fecha = "01/09/1991";

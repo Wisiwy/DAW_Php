@@ -1,0 +1,81 @@
+
+    String aporta su valor
+
+$modulo = "Desarrollo en el servidor";
+echo "<h2>Estoy estudiando $modulo </h2>";
+?>
+
+    Genera la salida
+
+Estoy estudiando Desarrollo en el servidor
+
+    Entero y float aporta su valor como parte del string
+
+$nota = 9.58;
+echo "<h2>Y me estudio se recompensa con una nota de $nota</h2>";
+?>
+
+    Genera la salida
+
+Y me estudio se recompensa con una nota de 9.58
+
+    Booleano TRUE se convierte a "1" y false a un string vacío ""
+
+$bool1 = true;
+$bool2 = false;
+echo "<h2> Visualizando booleanos: true -$bool1- y false  -$bool2-</h2>";
+?>
+
+    Genera la salida
+
+Visualizando booleanos: true -1- y false --
+
+    Null Un string vacío ""
+
+$valor = null;
+echo "<h2> Visualizando el valor null -$valor-</h2>";
+?>
+
+    Genera la salida
+
+Visualizando el valor null --
+
+    Array, Genera la palabra Array
+
+$vector = [1,2,3,4,5];
+echo "<h2> Visualizando un array -$vector-</h2>";
+?>
+
+    Genera la salida
+
+Visualizando un array -Array-
+
+    Objetos y recursos, Genera un error al intentar convertirlo a string. Para ello usaremos un método de tipo string que veremos en su momento
+
+<?php
+Class foo {
+}
+$obj = new foo();
+echo "<h2> Visualizando un objeto -$obj-</h2>";
+?>
+
+    No genera salida, y en fichero de errores nos informa
+
+[Sun Oct 04 18:18:44.431637 2020] [php7:error] [pid 998] [client ::1:35958] PHP Fatal
+error:  Uncaught Error: Object of class foo could not be converted to string in
+/var/www/prueba/8.php:5\nStack trace:\n#0 {main}\n  thrown in /var/www/prueba/8.php on
+line 5
+
+    En caso de un recurso p.e. mysqli
+
+<?php
+<?php
+$con =new mysqli("localhost","root", "root");
+echo "<h2> Visualizando un recurso -$con-</h2>";
+
+    Igualmente que el caso anterior no genera salida, y en fichero de errores nos informa
+
+[Sun Oct 04 18:24:08.426281 2020] [php7:error] [pid 7883] [client ::1:35968] PHP Fatal
+error:  Uncaught Error: Object of class mysqli could not be converted to string in
+/var/www/prueba/8.php:3\nStack trace:\n#0 {main}\n  thrown in /var/www/prueba/8.php on
+ line 3

@@ -5,7 +5,6 @@ trait Trabajador
 {
     //herencia múltiple conseguir con trait
     protected int $sueldo;
-
     /**
      * @return int
      */

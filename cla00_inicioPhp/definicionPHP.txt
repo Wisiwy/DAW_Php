@@ -1,0 +1,14 @@
+
+El intérprete PHP ignora el texto del fichero HTML
+Hasta que encuentra una etiqueta de inicio del bloque de código PHP embebido.
+    Entonces interpreta las instrucciones hasta el final de etiqueta generando la salida correspondiente que se añade
+    al documento html que se entrega al cliente (en caso de que las instrucciones lo generen)
+
+RESTRICCIONES del servidor con php
+
+    Como PHP se ejecuta del lado del servidor sólo puede tener acceso a los datos del propio servidor.
+        No puede acceder a los recursos del cliente
+        No puede saber qué hora es en el cliente
+        No puede acceder a los archivos del cliente
+            Salvo la excepción de las Cookies
+

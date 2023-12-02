@@ -1,4 +1,5 @@
 <?php
+//ARRAY_REDUCE
 /*****ARRAY_REDUCE
  * aplicación de funciones recursiva.
  * coge un array y aplica recursivamente una funcion, al resultado del primera aplicación

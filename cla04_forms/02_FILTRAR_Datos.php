@@ -17,8 +17,8 @@ $idiomas = $_POST['ej8_idiomas'];
     -$filtro: como en el caso anterior.*/
 
 //STRING
-//Sanitice esta, coger los caracteres considerados peligrosos y el navegador lo convierte como el codigo html &****/
-/*$nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_STRING); */
+    //Sanitice esta, coger los caracteres considerados peligrosos y el navegador lo convierte como el codigo html &****/
+    /*$nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_STRING); */
 
 //**FILTER INPUT y **HTMLSPECIALCHARS
 $nombre = htmlspecialchars( filter_input(INPUT_POST,'nombre'));

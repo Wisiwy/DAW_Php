@@ -1,4 +1,10 @@
 <?php
+/*NAME vs VALUE
+ *  * 1.- NAME es el que vamos a utilizar para recuperar el contenido del input en el servidor.
+            Tip: El name es al servidor lo mismo que el id es al cliente, con id podéis acceder a los valores de los
+                elementos con javascript, con el name lo haremos en php
+    2.-VALUE es el valor. Este valor se sustituye por el contenido del input del formulario.*/
+
 $nombre= $_POST['nombre'];
 $apellido= $_POST['apellido'];
 $email= $_POST['email'];

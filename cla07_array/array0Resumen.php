@@ -1,20 +1,24 @@
 <?php
 
-//DEFINICIÓN y ASIGNACION
-//indexado
+    //DEFINICIÓN y ASIGNACION
+
+//***ARRAY INDEXADO
 $miArray = array();
 $miArray = [];
 $notas1 = array(20, 10, 4, 2, 1);
 $notas2 = [20, 10, 4, 1, 2];
 
-//asociativo
-$capitales = array("España" => "Madrid",
+//***ARRAY ASOCIATIVO
+/*Asociar indices '=>' */
+$capitales = array(
+    "España" => "Madrid",
     "Italia" => "Roma",
     "Alemania" => "Berlín");
-$capitales2 = ["España" => "Madrid",
+$capitales2 = [
+    "España" => "Madrid",
     "Italia" => "Roma",
     "Alemania" => "Berlín"];
-//También se puede crear directamente con []
+//**También se puede crear directamente con []**
 $capitales3["España"] = "Madrid";
 $capitales3["Italia"] = "Roma";
 $capitales3["Alemania"] = "Berlín";
@@ -41,7 +45,7 @@ foreach ($capitales as $pais =>$capital){
     $n++;
 }
 
-/******FUNCIONES*******/
+/******FUNCIONES: size()  y count()*******/
 $size = sizeof($notas2);
 var_dump($size);
 $size = count($notas2);
@@ -58,9 +62,6 @@ echo "valor de posición 0 es $notas2[0]";
  * list() - Asignar variables como si fueran un array
  * next() - Avanza el puntero interno de un array
  * */
-
-
-
 
 //rellenar arrays
 $notas4 = [];

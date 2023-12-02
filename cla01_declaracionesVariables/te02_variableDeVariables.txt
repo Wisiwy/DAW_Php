@@ -1,0 +1,26 @@
+*****Variables de variables $$variable
+
+https://www.php.net/manual/es/language.variables.variable.php
+
+    Consiste en declarar el valor de una variable como otra variable.
+    Imagina el sigueinte código
+
+$fruta ="fresas";
+$fresas = 25;
+
+    Podemos hacerlo de la siguiente forma
+
+$fruta ="fresas";
+$$fruta = 25;
+
+    En ambos casos $fresas valdrá 25
+
+
+    Si declaramos una variable a variable con $$, lo que estamos haciendo es que el contenido de la variable
+    también sea variable y contenga un valor
+
+$asignatura="modulo"
+$$nombre ="BD"; // ahora diremos que $modulo vale BD
+
+    En el ejemplo vemos que $nombre vale módulo, si ahora asignamos un valor a $$nombre, estaremos creando una variable (el contendio de $nombre), de la variable $nombre, y ese contenido tendrá un valor ("BD")
+    Aquellos contenidos a los que asignemos valores se quedarán en el espacio de nombres de variables

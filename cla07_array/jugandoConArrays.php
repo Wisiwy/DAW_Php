@@ -2,9 +2,9 @@
 /*Definir Arrays. */
 $modulos1 = array(0 => "Programación",
     1 => 'Base de datos');
-var_dump($modulos1);
 $notas1 = array(20, 10, 4, 2, 1);
 $notas2 = [20, 10, 4, 1, 2];
+var_dump($modulos1);
 var_dump($notas1);
 var_dump($notas2);
 
@@ -58,7 +58,6 @@ $notas = array_map($cuadrados, $notas); //Aplica función a cada uno de los elem
 var_dump($notas);
 
 /*EJERCICIO: Array 10 notas y obtener max, min y media*/
-
 $notas4 = [];
 $notas4 = array_map(rellenar, $notas4);
 $maxNota = max($notas4);
@@ -68,6 +67,29 @@ $media = $suma / count($notas4);
 var_dump($notas4);
 echo "Max $maxNota - Min $minNota";
 /*$maxNota = ($notas4);*/
+
+//***EJEMPLO PROFE
+
+//Creo un array vacío;
+$notas = array_fill(0, 10, 0);
+$genera_notas = fn()=>rand(1,10);
+$notas = array_map($genera_notas,$notas );
+$mayor = $notas[0];
+$menor = $notas[0];
+$suma=0;
+
+$mayor = max ($notas);
+$menor = min ($notas);
+$media = array_sum($notas)/count($notas);
+
+foreach ($notas as $nota){
+    $mayor = ($nota> $mayor)? $nota: $mayor;
+    $menor = ($nota< $menor)? $nota: $menor;
+    $suma+=$nota;
+}
+echo "<h2>La nota mayor es $mayor</h2>";
+echo "<h2>La nota menor es $menor</h2>";
+echo "<h2>La nota media es".($suma/count($notas)). "</h2>";
 
 
 

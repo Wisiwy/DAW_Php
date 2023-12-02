@@ -1,17 +1,4 @@
 <?php
-// '??' RESOLUCIÓN DE NULOS
-$c = 2;
-$numero = $a ?? $b ?? $c;
-//resolucion de nulos coge la primera variable y si es nula pasa a la siguiente.
-//La última dara error si esta vacia
-
-/*****VARDUMP
- * Nos da información sobre la estructura de un valor resultado de una expresion
- */
-$array[] = [1, 2, 3, 4, 5];
-var_dump($array); //void
-
-
 //////DETERMINAR EXISTENCIA VARIABLES
 ///
 /*****ISSET
@@ -31,7 +18,7 @@ else
     print ("OtraVariableValor no no tiene valor asignado<BR>");
 
 /***IS_NULL()  Y   ***EMPTY() y IS_NUMERIC()
- *     -is_null($variable)    Determina si una variable ($variable) tiene valor null (BOOL)
+ *      -is_null($variable)    Determina si una variable ($variable) tiene valor null (BOOL)
  *      -empty($variable)    Determina si una variable ($variables)está vacía (BOOL)
  *      -is_numeric($variable) me dice si el valor de la variable es numércio
  */
@@ -56,3 +43,22 @@ echo "EMPTY";
  empty($a); //true !OJO!
  $a=0;
  empty($a); //true !OJO!
+
+
+/**IS_INT: Otras
+     * string is_int($variable);
+     * string is_double($variable);
+     * string is_bool($variable);
+     * string is_integer($variable);
+     * string is_null($variable);
+     * string is_string($variable);
+ *
+ */
+
+
+
+/*****VARDUMP
+ * Nos da información sobre la estructura de un valor resultado de una expresion
+ */
+$array[] = [1, 2, 3, 4, 5];
+var_dump($array); //void

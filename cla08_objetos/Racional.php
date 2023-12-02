@@ -2,7 +2,9 @@
 
 class Racional
 {
-//atributos
+//ATRIBUTOS
+
+//PRIVATE solo puede acceder el objeto
     private $numerador;
     private $denominador;
 

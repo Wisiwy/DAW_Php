@@ -4,10 +4,9 @@
 abstract class Persona
 {
 
+    //PROTECTED: atributos del padre protected
     public function __construct(protected string $nombre,
-                                protected int $edad)
-    {
-    }
+                                protected int    $edad){}
 
     public function __toString(): string
     {
@@ -16,6 +15,5 @@ abstract class Persona
     }
 
     //metodo abstracto que servira para los hijos, se tendra que implementar obligatoriamente
-
-    abstract  function queja();
+    abstract function queja();
 }

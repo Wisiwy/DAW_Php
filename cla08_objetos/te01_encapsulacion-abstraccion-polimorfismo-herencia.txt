@@ -1,0 +1,31 @@
+Visibilidad en PHP:
+La visibilidad en PHP se refiere a qué partes del código pueden acceder a las propiedades y métodos de una clase.
+Hay tres niveles de visibilidad que se pueden especificar:
+
+    -PUBLIC:
+    Los elementos públicos son accesibles desde cualquier lugar, ya sea desde la propia clase, desde otra sección
+    de código o desde una clase que hereda de la clase que contiene estos elementos. Si no se especifica la visibilidad, por defecto es pública.
+
+    -PRIVATE:
+     Los elementos privados solo son accesibles desde dentro de la propia clase. Ni siquiera las clases que heredan
+     de esta pueden acceder directamente a ellos.
+     Se recomienda el uso de métodos GETTER y SETTER para acceder a
+     estos elementos desde fuera de la clase.
+
+    -PROTECTED (herencia) :
+    Los elementos protegidos son accesibles desde la propia clase y desde clases que heredan de ella.
+    Es útil cuando queremos que las clases hijas tengan acceso a ciertos miembros, pero no queremos que sean públicos.
+
+    //herencia Persona - Médico
+                    class Persona {
+                        protected $nombre;
+                        protected $fNac;
+                    }
+
+                    class Medico extends Persona {
+                        private $numColegiado;
+
+                        public function visualiza() {
+                            echo "Médico $this->nombre";
+                        }
+                    }

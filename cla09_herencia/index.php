@@ -1,6 +1,5 @@
 <?php
 //Se ejecuta cuando usamos el "new". Busca si esta la clase y la carga. Ejecuta la función de carga.
-
 $carga = fn($clase) => require ("$clase.php");
 spl_autoload_register($carga);
 
@@ -14,3 +13,8 @@ echo "hola";
 echo "<h3> Bailarin a vale $bailarin </h3>";
 echo "<h3> Queja Deportista"."$deportista->queja"." </h3>";
 echo "<h3> Queja Bailarin a vale $bailarin->queja </h3>";
+
+
+    //PROTECTED: atributos del padre protected
+
+    //EXTENDS: para usar JERARQUIA
