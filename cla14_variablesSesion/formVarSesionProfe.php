@@ -1,7 +1,7 @@
 <?php
 require "vendor/autoload.php";
 
-use class\Tabla;
+use aUtilidades\Tabla;
 
 session_start();
 

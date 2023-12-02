@@ -3,19 +3,25 @@
     Mientras se mantiene comunicación cliente-servidor.
     TIEMPO DE VIDA: mientras este abierto NAVEGADOR o pase cierto tiempo sin haber mensajes.
         Por ejemplo 2 min si no hay mensaje entre cliente-servidor.
+    Se MANTIENEN en el SERVIDOR
 **CIERRE sesión.
     -Cliente o servidor cierran la sesión || Pasa un tiempo determinado sin mensajes .
 **IDENTIFICADOR de sesíón. Cookie id de sesion.
 **VARIABLES de sesión.
-    Durante la sesión el servidor puede escribir variables en la memoria del servidor y se mantienen mientras el cliente este enchufado-->
+    Durante la sesión el servidor puede escribir variables en la memoria
+    del servidor y se mantienen mientras el cliente este enchufado-->
 
 <?php
 /*CREAR VARIABLE SESION*/
-//session_start(); $_SESSION['nombre`] = 'manuel';
+/*  session_start(); $_SESSION['nombre`] = 'manuel';
+        tratar como si fuera variable normal: $_SESSION['ejArray'][] = ['mierda','caca']
 /*RECUPERAR SESION
-//$usuario= $_SESSION['nombre'];
+     $usuario= $_SESSION['nombre']; */
 /*ELIMINAR Session*/
-//session_destroy()
+/*  -session_unset.
+        Elimina las variables almacenadas en la sesión actual, pero no elimina la información de la sesión del dispositivo de almacenamiento usado.
+    -session_destroy.
+        Elimina completamente la información de la sesión del dispositivo de almacenamiento.*/
 
 
 session_start();

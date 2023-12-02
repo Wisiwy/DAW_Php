@@ -1,0 +1,16 @@
+MODOS DE AUTENTIFICARSE
+    1.Contraseña y usuario:
+        -Almacenamiento en sesión.
+        -Base de datos para almacenar datos de usuario y contraseña.
+    2.DNI digital.
+        -Certificados digitales de usuario.
+    3.Autenticación basada en Tokens:
+        -Protocolo OAuth 2.0.
+        -JSON Web Token (JWT).
+    4.Autenticación en dos pasos:
+        -SMS OTP (One Time Password).
+        -Envío de código al correo electrónico.
+        -Envío de URL al SMS o correo electrónico.
+    5.Autenticación basada en factores biométricos:
+        -Huella digital.
+        -Lectura del iris del ojo.

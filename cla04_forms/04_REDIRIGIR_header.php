@@ -1,9 +1,8 @@
 <?php
 
-//MIRARA PRACTICA 1  DE AUTENTIFICACIÓN. Redireccionamientos si es o no correcta la pass.
+//MIRAR PRACTICA 1  DE AUTENTIFICACIÓN. Redireccionamientos si es o no correcta la pass.
 
-
-header("Location:URL_de_la_página");
+header("Location:URL_de_la_página"); //MIRAR PRACTICA 1
 
 //con tiempo de demora
 header ("Refresh:5; url=URL_de_la_pagina");

@@ -6,8 +6,12 @@ c$ -> acabar oir ese caracter
 c+ -> 1 o mas caracteres
 c* -> 0 o mas caracteres
 c? -> 0 o 1 caracter
+^  -> empieza por
+$  -> acaba por
 
-Delimitar la expresion regular con #:  #^[^0-9]$#
+
+**DELIMITAR REGEX # ...#
+ *  Delimitar la expresion regular con #:  #^[^0-9]$#
 
 
 */
@@ -18,8 +22,12 @@ if (isset($_POST['submit'])) {
     $msj = preg_match($expresion, $cadena) ? "$cadena cumple $expresion_regular " :
         "$cadena NO cumple $expresion_regular";
 }
-
-
+//EJEMPLOS EXPRESIONE REGULARES
+$numeroEntero = "[0-9]+";
+$numeroReal = "$numeroEntero(\.[0-9]+)?";
+$numeroRacional = "$numeroEntero\/[1-9]+[0-9]*"; //*le indicamos que 0 o mas . Puede no estar el [0-9].
+$operadorReal = "[\-\+\*\/]";
+$operadorRacional = "[\-\+\*\:]";
 ?>
 
 <!doctype html>

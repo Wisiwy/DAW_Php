@@ -17,7 +17,14 @@ class Jugada
 
     public function jugar ($clave){
         $this->resultado = $this->numero == $clave ? true : false;
-
     }
+
+    public function isResultado(): bool
+    {
+        return $this->resultado;
+    }
+    /*public function pista*/
+
+
 
 }

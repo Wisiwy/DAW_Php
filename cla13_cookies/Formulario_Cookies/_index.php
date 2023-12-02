@@ -2,7 +2,7 @@
 
 require "vendor/autoload.php";
 
-use class\Tabla;
+use Utilidades\Tabla;
 
 //Creamos una app con los siuientes requisiotes
 /*

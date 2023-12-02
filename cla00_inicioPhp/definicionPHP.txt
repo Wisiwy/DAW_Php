@@ -12,3 +12,25 @@ RESTRICCIONES del servidor con php
         No puede acceder a los archivos del cliente
             Salvo la excepción de las Cookies
 
+
+            ----------------------------------
+
+Secuencia de escape
+Significado
+    \’ 	Comillas simples
+    \" 	Comillas dobles
+    \\ 	Barra invertida
+    \n 	Nueva linea (endl)
+    \r 	Retorno
+    \t 	Tabulación Horizontal
+    \v 	Tabulación Vertical
+    \0 - \777 	Código ascii(octal)
+    \x0 - \xFF 	Código ascii (hexadecimal)
+
+COMILLAS DOBLES: Interpretan los caracteres especiales
+      $ Especifico una variable por sintaxis simple
+    \ [#secuencia de escape
+
+COMILLAS SIMPLES:No interpreta los caracteres especiales, salvo \'
+    \\
+

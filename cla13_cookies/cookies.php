@@ -1,6 +1,6 @@
 <!--******COOKIES******
     -Fichero que escribe el servidor y almacena en el cliente con información de este.
-    -Ficheros texto con parejas variable - valor.
+    -Ficheros texto con parejas "variable->valor".
     -Cliente hace petición al servidor y este devuelve la página y una cookie con
      info de preferencias del cliente (variable - valor)
         Ej. idioma=frances, la próxima sesión se abrira en Francés el sitio.
@@ -8,12 +8,14 @@
     -No guarda objetos solamente strings.
 
  ****VIDA COOKIES: PROCESO
-1. Usuario solicita recurso web al servidor
+1. Cookie queda almacenada en el cliente
+2. Usuario solicita recurso web al servidor
     -Junto con solicitud se envian las cookies que el servidor hubiera escrito
     en ese cliente. Solo escritas por servidor.
-2. Servidor entrega recurso
+3. Servidor entrega recurso
     -Servidor analiza los valores de las cookies.
     -Personaliza la página segun las cookies.
+
 
  ****PUNTOS IMPORTANTES
  1. Cookie no almacena objetos solo STRING

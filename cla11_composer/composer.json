@@ -14,6 +14,7 @@
   "autoload": {
     "classmap": ["class"],
     "psr-4": {
+     // "Nombre_Espacio\\":"Dir_donde_están_las_clases",
       "controladores\\": "class/controladores",
       "modelos\\": "class/modelos",
       "plantillas\\": "class/plantillas",
@@ -21,4 +22,10 @@
       "publicas\\": "class/publicas"
     }
   }
+/*  "autoload":{
+    "psr-4":{
+      "Nombre_Espacio\\":"Dir_donde_están_las_clases"
+    }
+  }
+}*/
 }

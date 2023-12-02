@@ -1,5 +1,6 @@
 <?php
-/*Apache : crear fichero htaccess. Como se accedera a este proyecto.*/
+/*AUTENTIFICACIÓN DE APACHE
+ * Apache : crear fichero htaccess. Como se accedera a este proyecto.*/
 /*Crear archivo .htaccess password
   **AllowOverride - Esto le dice a Apache. Que a partir de esta directiva mira si hay un -ht acces Directiva.
  *                  -editar apache

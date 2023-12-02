@@ -15,7 +15,6 @@ $$fruta = 25;
 
     En ambos casos $fresas valdrá 25
 
-
     Si declaramos una variable a variable con $$, lo que estamos haciendo es que el contenido de la variable
     también sea variable y contenga un valor
 

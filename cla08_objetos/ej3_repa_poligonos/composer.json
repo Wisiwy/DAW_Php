@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "classmap": ["class"],
+    "psr-4": {
+      "poligonos\\": "class"
+    }
+  }
+}
