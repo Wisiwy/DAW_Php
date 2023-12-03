@@ -41,7 +41,7 @@ switch ($idioma) {
 <body>
 <h1><?= $saludo ?></h1>
 
-<form action="ejer00_idiomas.php" method="post">
+<form action="ej00_idiomas.php" method="post">
     <select name="idioma" id="">
         <option value="es">Español</option>
         <option value="en">English</option>

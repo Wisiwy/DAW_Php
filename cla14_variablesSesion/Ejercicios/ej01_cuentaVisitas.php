@@ -8,20 +8,20 @@ ini_set("display_errors", true);
 error_reporting(E_ALL);
 
 session_start();
-$msj='';
+$msj = '';
 /*$accesosSubmit=0;
 $accesosURL = 0;*/
 
 if (isset($_POST['submit'])) {
     $_SESSION['accesos'] ['submit']++;
     $msj = "Accedo por boton";
-    if($_POST['submit']=="Eliminar")
+    if ($_POST['submit'] == "Eliminar")
         session_destroy();
-}else{
+} else {
     $_SESSION['accesos'] ['url']++;
     $msj = "Accedo por URL";
 }
-$sumar = fn($acumulado,$valor)=>$acumulado+$valor;
+$sumar = fn($acumulado, $valor) => $acumulado + $valor;
 $accesosTotal = array_reduce($_SESSION['accesos'], $sumar, 0);
 ?>
 
@@ -36,9 +36,9 @@ $accesosTotal = array_reduce($_SESSION['accesos'], $sumar, 0);
 </head>
 <body>
 <h1>Bienvenido a la pagina de contar visitas</h1>
-<h2>Total: <?=$accesosTotal?></h2>
-<h2>Submit: <?=$_SESSION['accesos'] ['submit']?></h2>
-<h2>Url: <?=$_SESSION['accesos'] ['url']?></h2>
+<h2>Total: <?= $accesosTotal ?></h2>
+<h2>Submit: <?= $_SESSION['accesos'] ['submit'] ?></h2>
+<h2>Url: <?= $_SESSION['accesos'] ['url'] ?></h2>
 <form action="ej01_cuentaVisitas.php" method="post">
     <input type="submit" value="Recarga" name="submit">
     <input type="submit" value="Eliminar" name="submit">

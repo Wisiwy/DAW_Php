@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "classmap": [
+      "."
+    ],
+    "psr-4": {
+      "jugadaEj03\\": ".",
+      "aUtilidades\\": "../../../aUtilidades/Tabla.php"
+    }
+  }
+}
