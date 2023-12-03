@@ -1,0 +1,26 @@
+.resaltado{
+    color:blue;
+    font-size: 1.3em;
+
+}
+.contenedor{
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+    margin:20px ;
+}
+.juego{
+    width: 60%;
+    margin: 20px;
+    background: antiquewhite;
+}
+.informacion{
+    width: 60%;
+    margin: 20px;
+    background:blanchedalmond;
+    padding: 10px;
+    font-size: 1.2em;
+    color:blue;
+;
+
+}

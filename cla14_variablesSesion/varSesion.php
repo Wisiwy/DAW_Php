@@ -22,7 +22,9 @@
         Elimina las variables almacenadas en la sesión actual, pero no elimina la información de la sesión del dispositivo de almacenamiento usado.
     -session_destroy.
         Elimina completamente la información de la sesión del dispositivo de almacenamiento.*/
-
+/*REGENERATE ID
+    Cuando se hace un cambio de estado (login, cambio de permisos, ...): regenerar id.
+ *         session_regenerate_id();*/
 
 session_start();
 if (isset($_POST['submit']) && $_POST['submit'] == "Reinicio") {

@@ -1,6 +1,7 @@
 <?php
 
-empty(); //no permite el 0
+$num = 0;
+empty($num); //no permite el 0
 
 //no poner mixed mejor int|array
 
@@ -10,6 +11,7 @@ $miArray = array(
     'edad' => 25,
     'ciudad' => 'Ejemplo'
 );
+
 
 // Verificar y mostrar mensajes usando notación ternaria
 echo (array_key_exists('edad', $miArray)) ? "La clave 'edad' existe en el array.<br>" : "La clave 'edad' no existe en el array.<br>";

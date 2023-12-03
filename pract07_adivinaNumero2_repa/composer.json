@@ -1,0 +1,18 @@
+{
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "molonsguay",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "adivinaNumero2\\": "class"
+    }
+  }
+}

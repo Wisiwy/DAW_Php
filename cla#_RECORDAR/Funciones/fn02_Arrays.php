@@ -36,3 +36,10 @@ $sumar = fn($acumulado,$valor)=>$acumulado+$valor;
 $resultadoReducido = array_reduce($array, $sumar, 0);
 echo "Resultado de reducir el array: $resultadoReducido<br>";
 
+// ARRAY_SORT($array): Ordena un array en orden ascendente.
+sort($array);
+echo "Array ordenado de forma ascendente: "; print_r($array);
+
+// ARRAY_REVERSE($array): Invierte el orden de los elementos en un array.
+$arrayRevertido = array_reverse($array);
+echo "Array invertido: "; print_r($arrayRevertido);
