@@ -13,6 +13,15 @@ class Plantilla
         }
         return $html;
 
+    }
+
+    public static function escribir_combinacion($combinacion): string
+    {
+        $html = '';
+        foreach ($combinacion as $color) {
+            $html .= $color . "//";
+        }
+        return $html;
 
     }
 }

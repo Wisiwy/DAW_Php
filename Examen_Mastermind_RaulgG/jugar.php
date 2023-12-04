@@ -8,6 +8,7 @@ require "vendor/autoload.php";
 
 use Mastermind\Clave as Clave;
 use Mastermind\Plantilla as Plantilla ;
+use Mastermind\Jugada as Jugada ;
 
 
 session_start();
@@ -34,11 +35,11 @@ if (isset($_POST['submit'])) {
         case "Jugar":
             //recoger combinacion
             $combinacion_user = $_POST['combinacion'];
-            $jugada = new Jugada();
-            var_dump($combinacion);
-
+            var_dump($combinacion_user);
+            $jugada = new \Mastermind\Jugada($combinacion_user);
             break;
         case "Resetear Clave":
+            session_destroy();
             break;
         default:
     }
@@ -130,11 +131,16 @@ if (isset($_POST['submit'])) {
 
 <h1>INFORMACION</h1>
 <div class="informacion">
-<?=$msj?>
-/<br>
+<?php /*=$msj*/?>
+<br>
     <?=$msjClave ?>
 </div>
+<h2>JUGADA</h2>
+<?php
+if (isset($_POST['submit'])) {
+$jugada;
+}
 
-
+?>
 </body>
 </html>
