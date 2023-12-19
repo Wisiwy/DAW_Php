@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Mas interes las acciones y no
  *  PDO: se adapta a cualquiera bases de datos

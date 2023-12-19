@@ -1,4 +1,8 @@
 
+***.html o .php***
+archivo extension.html no lee el php si no hay extensón pahp no visualiza el php, solo renderiza html. obvia el codigo php
+
+        ------------------------------------------
 El intérprete PHP ignora el texto del fichero HTML
 Hasta que encuentra una etiqueta de inicio del bloque de código PHP embebido.
     Entonces interpreta las instrucciones hasta el final de etiqueta generando la salida correspondiente que se añade

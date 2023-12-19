@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "classmap": ["clases"],
+    "psr-4": {
+      "Mastermind\\": "clases"
+    }
+  }
+}

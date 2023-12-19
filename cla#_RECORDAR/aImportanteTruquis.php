@@ -33,7 +33,7 @@ exit();
 
 
 /****MATCH
- * operador contro*/
+ * operador contro, esuna comparación estricta*/
 $numero_mes = rand(1,4);
 $nombre_mes = match ($numero_mes){
     1=>"Enero",
@@ -69,6 +69,6 @@ $heredoc = <<<FIN
 <pre>
 En un lugar de \tla mancha de cuyo $nombre \nno quiero acordarme
 </pre> 
-FIN;
+FIN; //atento a la tabulación, al inicio
 
 echo $heredoc;

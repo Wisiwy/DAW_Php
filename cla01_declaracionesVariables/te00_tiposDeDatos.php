@@ -1,21 +1,17 @@
 <?php
 //DEBILMENTE TIPADO
-/*DEBILMENTE TIPADO
- *
-Lenguajes débilmente tipados
-Los valores con los que trabaja siempre tienen un tipo.
-Éste no ha de ser declarado antes de ser utilizarlo.
-Esta declaración del tipo, va implícita cada vez que asignamos un valor a la variable utilizada.
-Este tipo cambiará si asignamos un valor de otro tipo.
+/*
+    Lenguajes débilmente tipados
+    Los valores con los que trabaja siempre tienen un tipo.
+    Éste no ha de ser declarado antes de ser utilizarlo.
+    Esta declaración del tipo, va implícita cada vez que asignamos un valor a la variable utilizada.
+    Este tipo cambiará si asignamos un valor de otro tipo.
 
  $a = 5; //Ahora la variable $a es de tipo entero
  $a = "Nieves"; //Ahora la variable $b es de tipo string
  */
 //TIPADO DINÁMICO
 /*
- * TIPADO DINÁMICO
-
-
     Php no es estricto en el tipo de dato de una variable, en cuanto que éste puede cambiar durante su vida.
     En este sentido php es un lenguaje de tipado dinámico, el tipo de la variable depende del valor que tiene en un momento dado o de los operadores que lo afecten.
     La declaración de tipo no existe de forma explícita
@@ -23,6 +19,14 @@ Este tipo cambiará si asignamos un valor de otro tipo.
     Si le asigno un valor de otro tipo, vuelve a ocurrir una delcaración de tipo
 
  */
+
+
+/* DATOS PRIMITIVOS
+ * Tipos de datos primitivos solamente (integer, float, string, boolean)
+ * El operador marca mucho el tipo de dato si hay operación será integer o float.
+ * Hexadecimal es integer.*/
+
+$boolean = true + true; //es 2, integer
 
 $a = 5; //Ahora la variable $a es de tipo entero
 $b = "Nieves"; //Ahora la variable $b es de tipo string
