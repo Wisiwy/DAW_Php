@@ -6,18 +6,16 @@
                              servicios interactuan.
     - multicontenedor: Contenedores de Docker que necesitan trabajar juntos. Definir todos los servicios, redes y
                         volúmenes en un solo archivo, simplificando la gestión de la aplicación.
-    - 'docker compose up' ('down')
-    - comandos
-        -docker composer log
-        -docker composer log mysql
+    - 'docker compose up'
+
+
+
 
 REFERENCIAS:
     -Imagenes ya creadas: https://hub.docker.com/
 */
 
-/*CONTENEDOR DE MySql
-    -Vigilar USER_(para no confundir con el sistema)
-    -map */
+
 
 //LIMPIAR
 /*When a container is started for the first time, a new database with the specified name will be created and

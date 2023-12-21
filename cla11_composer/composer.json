@@ -9,7 +9,8 @@
       "email": "email@example.com"
     }
   ],
-
+  "require": {
+  },
   "autoload": {
     "classmap": ["class"],
     "psr-4": {
@@ -20,15 +21,11 @@
       "privadas\\": "class/privadas",
       "publicas\\": "class/publicas"
     }
-  },
-  "require": {
-    "ext-mysqli": "*"
   }
-
-  /*  "autoload":{
-      "psr-4":{
-        "Nombre_Espacio\\":"Dir_donde_están_las_clases"
-      }
+/*  "autoload":{
+    "psr-4":{
+      "Nombre_Espacio\\":"Dir_donde_están_las_clases"
     }
-  }*/
+  }
+}*/
 }

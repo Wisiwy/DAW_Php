@@ -16,7 +16,7 @@ services:
     ports: #mapear puertos sabemos que es por puerto 80
       - ${PORT_MYSQL}:3306
     volumes:
-      - ./datos:/var/lib/mysql #directorio donde guarda info, los datos físicos.
+      - ./datos:/var/lib/mysql #directorio donde guarda info
       - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
     environment:
       - MYSQL_USER=${USER_}
