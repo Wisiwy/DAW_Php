@@ -12,25 +12,27 @@ services:
   mysql: #"mysql" nombre del servicio(identificador, puede ser cualquiera).
     #image: mysql #fichero donde esta el docker-file (la imagen)
     build: ./imagenes/mysql #creo a partir de una dockerfile, permite hacer varias instrucciones
+    #mapear puertos sabemos que es por puerto 80. Me abro un puerto en local y redirigo
+    ports:
+      - ${PORT_MYSQL}:3306 #de la biblio '.env'
     #mapear para no perder datos cuando desaparezca contenedor.
-    ports: #mapear puertos sabemos que es por puerto 80
-      - ${PORT_MYSQL}:3306
     volumes:
       - ./datos:/var/lib/mysql #directorio donde guarda info
-      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
+      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql #archivo se ejecute al entrar en servicio (ej.datos.sql)
     environment:
       - MYSQL_USER=${USER_}
       - MYSQL_PASSWORD=${PASSWORD}
       - MYSQL_DATABASE=${DATABASE}
       - MYSQL_ROOT_PASSWORD=${PASSWORD_ROOT}
+######################
 #servicio gestionar database desde phpmyadmin
-  phpmyadmin:
+  phpmyadmin: #otro servicio
     image: phpmyadmin
     container_name: phpmyadmin
     ports: #mapear puertos sabemos que es por puerto 80
       - ${PORT_PHPMYADMIN}:80
-    depends_on: #no arrancarlo hasta ejecutar mysql
+    depends_on: #no arrancarlo hasta ejecutar el servicio 'mysql'
       - mysql
     environment:
       PMA_ARBITRARY: 1
-      PMA_HOST: mysql #con composer me refiero a los servicios
+      PMA_HOST: mysql #la base de datos a ejecutar esta en mysql composer

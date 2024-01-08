@@ -14,4 +14,5 @@ $nombre = $_SESSION['usuario'];
 <body>
 <h1>Bienvenido a este sitio we <?=$nombre ?></h1>
 </body>
+
 </html>
