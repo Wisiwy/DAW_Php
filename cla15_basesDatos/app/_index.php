@@ -27,7 +27,7 @@ switch ($opcion){
         $user = $_POST['user'];
         $password = $_POST['password'];
         $rtdo = $con->insertar_usuario($user,$password);
-        $msj = $rtdo ? " Insercion correcta $user" : "Error en insercion";
+        $msj = $rtdo ? "Insercion correcta $user" : "Error en insercion";
         break;
     default:
 }
@@ -45,15 +45,17 @@ switch ($opcion){
     <title>Base de datos</title>
 </head>
 <body>
+<h2>Mensaje: <?=$msj ??"" ?></h2>
 <fieldset>
     <legend>Datos de acceso</legend>
-    <form action="" method="post">
+    <form action="" method="POST">
         Usuario <input type="text" name="user" placeholder="Usuario" id=""><br>
         Password <input type="text" name="password" placeholder="Password" id=""><br>
-        <input type="submit" value="Acceder">
-        <input type="submit" value="Registrarme">
+        <input type="submit" value="Acceder" name="submit">
+        <input type="submit" value="Registrarme" name="submit">
 
     </form>
 </fieldset>
+
 </body>
 </html>

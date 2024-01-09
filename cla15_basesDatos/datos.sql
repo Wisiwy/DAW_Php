@@ -1,13 +1,13 @@
 -- Si existiera, borramos tanto la base de datos, como el usuario
 DROP DATABASE IF EXISTS `dwes`;
 
-
-
-
+ 
+ 
+ 
 -- Creamos la base de datos
 CREATE DATABASE  `dwes` DEFAULT CHARACTER SET UTF8MB4 COLLATE  utf8mb4_unicode_ci;
-
-
+ 
+ 
 USE `dwes`;
 -- Creamos las tablas en la base de datos creada
 
@@ -17,9 +17,9 @@ CREATE TABLE  `dwes`.`tienda` (
                                   `tlf` VARCHAR( 13 ) NULL
 ) ENGINE = INNODB;
 CREATE TABLE  `dwes`.`usuarios` (
-                                    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-                                    `nombre` VARCHAR( 50 ) NOT NULL ,
-                                    `password` VARCHAR( 200 ) NULL
+                                  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                                  `nombre` VARCHAR( 50 ) NOT NULL ,
+                                  `password` VARCHAR( 200 ) NULL
 ) ENGINE = INNODB;
 
 CREATE TABLE  `dwes`.`producto` (
@@ -172,9 +172,9 @@ CREATE TABLE  `dwes`.`tienda` (
                                   `tlf` VARCHAR( 13 ) NULL
 ) ENGINE = INNODB;
 CREATE TABLE  `dwes`.`usuarios` (
-                                    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-                                    `nombre` VARCHAR( 50 ) NOT NULL ,
-                                    `password` VARCHAR( 200 ) NULL
+                                  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                                  `nombre` VARCHAR( 50 ) NOT NULL ,
+                                  `password` VARCHAR( 200 ) NULL
 ) ENGINE = INNODB;
 
 CREATE TABLE  `dwes`.`producto` (
