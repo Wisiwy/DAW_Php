@@ -21,7 +21,7 @@ switch ($opcion) {
         $tabla->add_cabecera(["nombre sessión", "Valor", "Accion"]);
         foreach ($_SESSION as $nombre=>$valor) {
             $btn_borrar =<<<FIN
-                <form action='index.php' method="post">
+                <form action='_index.php' method="post">
                      <input type="submit" value="Borrar" name="submit">
                      <input type="hidden" name="nombre" value="$nombre" >
                 </form>

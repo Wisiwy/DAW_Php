@@ -11,7 +11,7 @@ $dotenv->safeLoad();
 session_start();
 $user = $_SESSION['user'] ?? null;
 if (is_null($user)) {
-    header("Location:index.php");
+    header("Location:_index.php");
     exit();
 }
 $con = new Database();

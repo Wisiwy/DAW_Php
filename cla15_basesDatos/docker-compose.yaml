@@ -1,6 +1,9 @@
 #Queremos 2 contenedores (servicios), que se comuniquen entre si
 #  1. gestor de base datos
 #  2. phpmyadmin
+#########
+#docker compose up - levantar contenedores
+#http://localhost:8080/ -> comprobar phpmyadmin funcionamiento
 
 
 

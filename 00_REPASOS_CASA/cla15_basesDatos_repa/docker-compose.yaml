@@ -1,0 +1,41 @@
+##Con esta herramienta vamos a poder crear un ambiente de ejecucución basada en contenedores donde estarán los diferentes servicios y lógicamente se van a poder ver entre ellos, a través de una red creada para ello.
+##1.- Creamos tantos ficheros (uno o varios) como necesitemos para especificar nuestros contenedores DockerFile' donde
+##2.- Creamos un fichero llamado docker-cpomposer.yml donde incluirmos los servicios que necesitamos en nuestro ambiente así como el contenedor o fichero dockerfile en el cual se va a crear nuestro fichero. Igualmnete en este fichero linkamos servicios, abrimos puertos, ....
+##3.- Ejecutamos el comando docker-composer up para levantar todos los contenedores especificados y poder empezar a utilizar el ambiendo especificado.
+
+#nombre versión (obligatoria)
+version: "3.8"
+#servicio
+services:
+  #"mysql" identificador del servicio (puede ser cualquiera)
+  mysql:
+    #imagen: fichero docker-file, imagen a partir de donde se crea el contenddor
+    build: ./imagenes/mysql
+    #mapear puertos: abro puerto en local y redirijo
+    ports:
+      - ${PORT_MYSQL}:3306
+    #carpeta persistencia de datos (guardar info DB)
+    volumes:
+      - ./datos:/var/lib/mysql
+      #archivo ejecutar al levantar contenedor (datos.sql)
+      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
+    environment:
+      - MYSQL_USER=${USER_}
+      - MYSQL_PASSWORD=${PASSWORD}
+      - MYSQL_DATABASE=${DATABASE}
+      - MYSQL_ROOT_PASSWORD=${PASSWORD_ROOT}
+    ############
+    #"phpmyadmin", servicio gestionar database
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - ${PORT_PHPMYADMIN}:80
+    #no arrancar hasta que ejecutar servicio 'mysql'
+    depends_on:
+      - mysql
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql #la base de datos a ejecutar esta en mysql composer
+
+
