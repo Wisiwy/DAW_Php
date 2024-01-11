@@ -19,6 +19,7 @@ services:
       - ./datos:/var/lib/mysql
       #archivo ejecutar al levantar contenedor (datos.sql)
       - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
+    #docker recoge las variables de .env
     environment:
       - MYSQL_USER=${USER_}
       - MYSQL_PASSWORD=${PASSWORD}
@@ -27,6 +28,7 @@ services:
     ############
     #"phpmyadmin", servicio gestionar database
   phpmyadmin:
+    #el propio docker recoge las imagenes de docke.hum
     image: phpmyadmin
     container_name: phpmyadmin
     ports:

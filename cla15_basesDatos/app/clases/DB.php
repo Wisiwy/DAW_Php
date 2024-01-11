@@ -86,8 +86,39 @@ class DB
             $rtdo = $this->con->query($sentencia); //devuleve msqli_result
             //metodos
             return $rtdo->fetch_all();
-        }catch (\mysqli_sql_exception $e){
-            return "error raul:". $e->getMessage();
+        } catch (\mysqli_sql_exception $e) {
+            return "error raul:" . $e->getMessage();
+        }
+
+    }
+
+    public function obtener_productos(string $familia): array|string
+    {
+        $sentencia = <<<FIN
+                            SELECT cod, nombre_corto, PVP FROM producto 
+                          WHERE familia = ?;
+       FIN;
+        $productos = [];
+
+        try {
+            //Crear la sentencia
+            $stmt = $this->con->stmt_init();
+            $stmt->prepare($sentencia);
+            $stmt->bind_param("s", $familia);
+            $stmt->execute();
+            $stmt->store_result();
+            //variables donde guardamos cada uno de los select
+            $stmt->bind_result($cod, $nom, $pvp);
+            //recoge una fila por fetch
+            while ($stmt->fetch()) {
+                //sera un array indexado de array asociativo con las variables
+                $productos[] = ["cod" => $cod, "nombre" => $nom, "PVP" => $pvp];
+            };
+        } catch (\mysqli_sql_exception $e) {
+            return "error raul:" . $e->getMessage();
+        } //seccion codigo que se ejecuta siempre a pesar del catch o tru
+        finally {
+            return $productos;
         }
 
     }
