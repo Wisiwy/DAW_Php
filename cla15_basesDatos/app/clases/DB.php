@@ -101,7 +101,7 @@ class DB
         $productos = [];
 
         try {
-            //Crear la sentencia
+            //Preparamos la sentencia
             $stmt = $this->con->stmt_init();
             $stmt->prepare($sentencia);
             $stmt->bind_param("s", $familia);

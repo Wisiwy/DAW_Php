@@ -21,7 +21,7 @@ $opcion = $_POST['submit'] ?? null;
 switch ($opcion) {
     case "Ver Productos":
         //cuando quiero recoger una opcion del select recojo el value.
-        $cod_familia = $_POST['familia'];
+        $cod_familia = $_POST['familias'];
         //hacer seleccion en DB con el codigo
         $productos = $con->obtener_productos($cod_familia);
         var_dump($productos);
@@ -43,7 +43,7 @@ switch ($opcion) {
 
 <h1>Bienvenido a este sitio we <?= $user ?></h1>
 <form action="" method="post">
-<select name = "familia" id="">
+<select name = "familias" id="">
     <?php
         foreach ($familias as $familia) {
         $cod = $familia[0];
@@ -76,7 +76,7 @@ if(isset($productos)): ?>
 <!--//form con submit para modificar y enviar a una nueva taba-->
     <td>
     <form action='producto.php' method="POST">
-    <input type="submit" value="Editar" name="sumbit">
+    <input type="submit" value="Editar" name="submit">
     <!--Estos hidden podrían meterse en var session-->
     <!--guardamos codigo del producto-->
     <input type="hidden" name="cod_producto" value="{$producto['cod']}" >
