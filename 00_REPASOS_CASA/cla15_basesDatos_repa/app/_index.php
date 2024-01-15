@@ -63,7 +63,7 @@ switch ($opcion) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/estiloindex.css">
+    <link rel="stylesheet" href="estilos/estilo-index.css">
     <title>cla15_DB_repa: Registro</title>
 </head>
 <body>

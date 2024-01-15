@@ -122,37 +122,66 @@ FIN;
     }
 
     /**
-     *  Obtiene la información de los productos pertenecientes a una familia específica desde la base de datos.
-     * @param string $familia El código de la familia de productos.
-    Un array asociativo con la información de los productos de la familia o un mensaje de error en caso de fallo     */
-    public function obtener_productos(string $familia): array|string
+     *   Obtiene la información de los productos a partir de un codigo, o bien el del propio producto o el de su familia.* @param string $codigo
+     * @param $codigo El código del cual haremos la consulta.
+     * @param $tipo Especifiar si el codigo es de la familia o el del producto.
+     * @return array|string  Un array asociativo con la información del producto(codigo_producto, nombre, despcripcion, pvp) o un mensaje de error en caso de fallo
+     */
+    public function obtener_productos(string $codigo, string $tipo): array|string
     {
-        $productos=[];
-        $sentencia = <<<FIN
-SELECT cod, nombre_corto, PVP FROM producto
-WHERE familia = ?;
+        $productos = [];
+        $sentencia = '';
+//dependiendo de tipo de codigo elegimos una sentencia u otra
+        switch ($tipo) {
+            case "familia":
+                $sentencia = <<<FIN
+SELECT cod, nombre_corto, descripcion, PVP FROM producto
+WHERE familia = ?
 FIN;
-    try{
-        //Preparamos sentencia
+                break;
+            case "producto":
+                $sentencia = <<<FIN
+SELECT cod, nombre_corto, descripcion, PVP FROM producto
+WHERE cod = ?
+FIN;
+                break;
+        }
+
+        try {
+            //Preparamos sentencia
+            $stmt = $this->con->stmt_init();
+            $stmt->prepare($sentencia);
+            $stmt->bind_param("s", $codigo);
+            $stmt->execute();
+            $stmt->store_result();
+            //Definimos las variables donde recogeremos los campos de la consulta
+            $stmt->bind_result($cod, $nom, $descripcion, $pvp);
+            //con 'fetch()' recojo una fila y creo un array asociativo con los valores de las variables recogidas en la consulta ($var, $nom, $pvp
+            while ($stmt->fetch()) {
+                //será un array indexado de array asociativo con las variables
+                $productos[] = ["cod" => $cod, "nombre" => $nom, "descripcion" => $descripcion, "PVP" => $pvp];
+            }
+        } catch (\mysqli_sql_exception $e) {
+            return "Error SQL: " . $e->getMessage();
+
+        } //finally{}: sección del código que se ejecuta siempre despues de try or catch
+        finally {
+            return $productos;
+        }
+    }
+
+    public function actualizar_producto(string $nombre, string $descripcion, string $pvp, string $cod_producto):bool
+    {
+        $sentencia = <<<FIN
+UPDATE producto
+SET nombre_corto = ?, descripcion = ?, PVP = ?
+WHERE cod = ?
+FIN;
+        //ponemos las variables
         $stmt = $this->con->stmt_init();
         $stmt->prepare($sentencia);
-        $stmt->bind_param("s", $familia);
+        $stmt->bind_param("ssss", $nombre,$descripcion, $pvp, $cod_producto);
         $stmt->execute();
-        $stmt->store_result();
-        //Definimos las variables donde recogeremos los campos de la consulta
-        $stmt->bind_result($cod,$nom,$pvp);
-        //con 'fetch()' recojo una fila y creo un array asociativo con los valores de las variables recogidas en la consulta ($var, $nom, $pvp
-        while ($stmt->fetch()){
-            //será un array indexado de array asociativo con las variables
-            $productos[] = ["cod" => $cod, "nombre" => $nom, "PVP" => $pvp];
-        }
-    }catch (\mysqli_sql_exception $e){
-        return "Error SQL: " . $e->getMessage();
-
-    }
-    //finally{}: sección del código que se ejecuta siempre despues de try or catch
-    finally {
-        return $productos;
-    }
+        return $stmt->store_result();
     }
 }

@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+}
+
+.mensaje-contenedor {
+    text-align: center;
+}
+
+.mensaje {
+    font-size: 36px;
+    color: #4caf50;
+    margin: 0;
+}

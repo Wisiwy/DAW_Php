@@ -36,7 +36,7 @@ switch ($opcion) {
         //Cuando quiero recoger el value de un <option>, recojo el post del <select>
         $cod_familia = $_POST['familias'];
         //Obtenermos productos de la DB con el cod_familia recogido
-        $productos = $con->obtener_productos($cod_familia);
+        $productos = $con->obtener_productos($cod_familia, "familia");
         break;
     default:
 }
@@ -49,6 +49,7 @@ switch ($opcion) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilos/estilo-sitio.css">
     <title>cla15_DB_repa: Sitio</title>
 </head>
 <body>
@@ -79,6 +80,7 @@ switch ($opcion) {
             <tr>
                 <th>Nombre</th>
                 <th>PVP</th>
+                <th>Editar</th>
             </tr>
             <?php
             foreach ($productos as $producto) {
@@ -90,7 +92,7 @@ switch ($opcion) {
                 <!-- añadimos un boton para modificar el producto en una nueva pagina -->
                 <td>
                     <form action="producto.php" method="post">
-                        <input type="submit" value="Editar" name="submit">
+                        <input type="submit" name="submit" value="editar" >
                         <!-- hiddens para guardar valores de cod_producto y cod_familia -->
                         <input type="hidden" name="cod_producto" value="{$producto['cod']}" >
                         <input type="hidden" name="cod_familia" value="$cod_familia">
