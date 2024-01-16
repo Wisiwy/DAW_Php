@@ -21,7 +21,7 @@
         .curl -sS https://getcomposer.org/installer | php
         -sudo mv composer.phar /usr/bin/composer //cambia directorio la instalación
         -composer install: en la carpeta del proyecto
-        -composer update actualizar el class map. //se soluciona con otro autoload
+        -composer update: actualizar el class map. //se soluciona con otro autoload
 2. Carpeta VENDOR
     -Crea vendor, con varios autoload. Entre ellos el "classmap".
     -Busca las clases a cargar ahí.
