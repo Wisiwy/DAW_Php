@@ -28,6 +28,7 @@ if (is_null($usuario)) {
 //Obtenemos array con nombres de las familias de productos de la DB
 $con = new Database();
 $familias = $con->obtener_familias();
+var_dump($_SESSION);
 
 //Obtenermos productos[] de la familia que el usuario a elegido
 $opcion = $_POST['submit'] ?? null;
@@ -36,6 +37,15 @@ switch ($opcion) {
         //Cuando quiero recoger el value de un <option>, recojo el post del <select>
         $cod_familia = $_POST['familias'];
         //Obtenermos productos de la DB con el cod_familia recogido
+        $productos = $con->obtener_productos($cod_familia, "familia");
+        //Guardamos en variable sesión el codigo fámilia para futuros usos
+        $_SESSION['cod_familia'] = $cod_familia;
+        var_dump($_SESSION['cod_familia']);
+        break;
+    case "Cancelar";
+        $cod_familia = $_SESSION['cod_familia'];
+
+        var_dump($cod_familia);
         $productos = $con->obtener_productos($cod_familia, "familia");
         break;
     default:
@@ -54,7 +64,7 @@ switch ($opcion) {
 </head>
 <body>
 
-<h1>Bienvenido <?= $usuario ?> </h1>
+<h1>Bienvenido a tu tienda de informática, <?= $usuario ?> </h1>
 <form action="" method="post">
     <select name="familias" id="">
         <!-- Menu ('select') una opción para cada uno de los nombres extraidas de la DB en $familias [] -->
@@ -92,7 +102,7 @@ switch ($opcion) {
                 <!-- añadimos un boton para modificar el producto en una nueva pagina -->
                 <td>
                     <form action="producto.php" method="post">
-                        <input type="submit" name="submit" value="editar" >
+                        <input type="submit" name="submit" value="Editar" >
                         <!-- hiddens para guardar valores de cod_producto y cod_familia -->
                         <input type="hidden" name="cod_producto" value="{$producto['cod']}" >
                         <input type="hidden" name="cod_familia" value="$cod_familia">

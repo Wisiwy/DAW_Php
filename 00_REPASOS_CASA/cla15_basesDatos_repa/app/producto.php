@@ -5,6 +5,8 @@
  * Version: 00.1
  */
 /*Ver errores*/
+session_start();
+var_dump($_SESSION);
 ini_set("display_errors", true);
 error_reporting(E_ALL);
 /*Composer y alias a clases*/
@@ -25,19 +27,18 @@ $con = new Database();
 $opcion = $_POST['submit'] ?? null;
 switch ($opcion) {
     //desde sitio.php: mostramos info del producto extraido de la DB con cod_producto
-    case "editar":
+    case "Editar":
         //recoger del hidden de 'sitio.php',  cod_producto
         $cod_producto = $_POST['cod_producto'];
         //consulta a DB: array con info del producto
         $datos_producto = $con->obtener_productos($cod_producto, "producto");
         break;
-    case "actualizar":
+    case "Actualizar":
         //recogemos los nuevos valores del formulario
         $nombre = $_POST["nombreCorto"];
         $descripcion = $_POST["descripcion"];
         $pvp = $_POST["pvp"];
         $cod_producto = $_POST['cod_producto'];
-        var_dump($cod_producto);
         //actualizamos la base de datos con la nueva info
         if($con->actualizar_producto($nombre, $descripcion, $pvp,$cod_producto))
             header("Location:actualizar.php");
@@ -45,20 +46,8 @@ switch ($opcion) {
             //si no se ha realizado la inserccion devuelve false
             echo "Actualizacion incorrecta";
         break;
-    case "cancelar":
-        header("Location:sitio.php");
-
-        break;
     default:
 }
-
-//recoger el nuevo value y actualizar
-//comparar si se cambia el campo
-
-//recoger datos
-
-//update
-
 
 ?>
 <!doctype html>
@@ -93,8 +82,10 @@ switch ($opcion) {
     <!-- Pasamos por post el cod_producto para actualizar base datos -->
     <input type="hidden" name="cod_producto" value="<?=$datos_producto[0]['cod']?>" >
 
-    <button type="submit" name="submit" value="actualizar">Actualizar</button>
-    <button type="submit" name="submit" value="cancelar">Cancelar</button>
+    <button type="submit" name="submit" value="Actualizar">Actualizar</button>
+</form>
+<form action="sitio.php" method="post">
+    <button type="submit" name="submit" value="Cancelar">Cancelar</button>
 </form>
 </body>
 </html>

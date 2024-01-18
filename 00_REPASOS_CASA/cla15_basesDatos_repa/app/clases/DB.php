@@ -170,6 +170,14 @@ FIN;
         }
     }
 
+    /**
+     * Actualiza los la base de
+     * @param string $nombre
+     * @param string $descripcion
+     * @param string $pvp
+     * @param string $cod_producto
+     * @return bool
+     */
     public function actualizar_producto(string $nombre, string $descripcion, string $pvp, string $cod_producto):bool
     {
         $sentencia = <<<FIN
