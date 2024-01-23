@@ -1,6 +1,6 @@
 <?php
 //Tras 5 segundos reenvia a 'sitio.php'
-header("refresh:3;url=sitio.php");
+header("refresh:2;url=sitio.php");
 ?>
 <!doctype html>
 <html lang="en">

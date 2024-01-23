@@ -3,14 +3,16 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-
 }
+
 section{
     display: flex;
+    flex-direction: ;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
 fieldset {
     border: 1px solid #ccc;
     padding: 20px;

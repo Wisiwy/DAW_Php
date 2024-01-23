@@ -6,11 +6,12 @@
  */
 
 /*Ver errores*/
-ini_set("display_errors", true);
-error_reporting(E_ALL);
+/*ini_set("display_errors", true);
+error_reporting(E_ALL);*/
 
 /*Composer y alias a clases*/
 require "vendor/autoload.php";
+
 use utilidades_repa\DB as Database;
 use Dotenv\Dotenv;
 
@@ -18,7 +19,7 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable("./../");
 $dotenv->safeLoad();
 
-//Creamos la conexion con la DB (a traves de la clase)
+//Creamos la CONEXIÓN con la DB (a traves de la clase)
 $con = new Database();
 
 //Acceso o Registro dependiendo boton pulsado en formulario
@@ -26,8 +27,8 @@ $opcion = $_POST['submit'] ?? null;
 switch ($opcion) {
     case "Acceder":
         //recogo datos usuario
-        $usuario = htmlspecialchars(filter_input(INPUT_POST,'usuario'));
-        $password = htmlspecialchars(filter_input(INPUT_POST,'password'));
+        $usuario = htmlspecialchars(filter_input(INPUT_POST, 'usuario'));
+        $password = htmlspecialchars(filter_input(INPUT_POST, 'password'));
         //compruebo que existe usuario en base de datos
         if ($con->validar_usuario($usuario, $password)) {
             //guardo usuario en variable sesion, para llamarlo en sitio.php
@@ -42,18 +43,13 @@ switch ($opcion) {
         break;
     case "Registrarme":
         //Leemos los datos del formulario
-//        $usuario = $_POST['usuario'];
-       $usuario = htmlspecialchars(filter_input(INPUT_POST,'usuario'));
-        var_dump($usuario);
-        $password = htmlspecialchars(filter_input(INPUT_POST,'password'));
+        $usuario = htmlspecialchars(filter_input(INPUT_POST, 'usuario'));
+        $password = htmlspecialchars(filter_input(INPUT_POST, 'password'));
         //Introduciomos en la DB el nuevo registro. Recogemos el mensaje de insercción correcta
         $msj = $con->insertar_usuario($usuario, $password);
         break;
-
     default:
 }
-
-
 ?>
 
 <!doctype html>
@@ -67,11 +63,12 @@ switch ($opcion) {
     <title>cla15_DB_repa: Registro</title>
 </head>
 <body>
+
 <section>
-    <h3 style="color: darkred;">MsJ: <?=$msj?></h3>
     <fieldset>
+    <legend><h3>Acceso usuario</h3></legend>
         <form action="" method="POST">
-            <label for="user">Usuario</label>
+            <label for="usuario">Usuario</label>
             <input type="text" name="usuario" id="usuario" placeholder="Usuario">
 
             <label for="password">Password</label>
@@ -79,9 +76,12 @@ switch ($opcion) {
 
             <input type="submit" value="Acceder" name="submit">
             <input type="submit" value="Registrarme" name="submit">
+
+            <h3 style="color: darkred;">MsJ: <?= $msj ?></h3>
         </form>
     </fieldset>
 </section>
+
 
 </body>
 </html>

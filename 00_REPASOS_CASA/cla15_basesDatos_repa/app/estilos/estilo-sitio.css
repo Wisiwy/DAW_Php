@@ -1,21 +1,28 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 12vh;
 
 }
 
-h1 {
-    color: #333;
+#select-familias{
+    display: flex;
+    align-items: center;
 }
 
-form {
-    margin-top: 20px;
-    margin-bottom: 20px;
+h1, form {
+    align-self: center;
+    width: 50%;
+    margin: 10px auto;
 }
 
 select {
+    align-self: center;
     padding: 8px;
+    margin-top: 10px;
 }
 
 input[type="submit"] {

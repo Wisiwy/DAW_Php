@@ -135,13 +135,13 @@ FIN;
         switch ($tipo) {
             case "familia":
                 $sentencia = <<<FIN
-SELECT cod, nombre_corto, descripcion, PVP FROM producto
+SELECT cod, nombre_corto, descripcion, PVP, familia FROM producto
 WHERE familia = ?
 FIN;
                 break;
             case "producto":
                 $sentencia = <<<FIN
-SELECT cod, nombre_corto, descripcion, PVP FROM producto
+SELECT cod, nombre_corto, descripcion, PVP, familia FROM producto
 WHERE cod = ?
 FIN;
                 break;
@@ -155,11 +155,11 @@ FIN;
             $stmt->execute();
             $stmt->store_result();
             //Definimos las variables donde recogeremos los campos de la consulta
-            $stmt->bind_result($cod, $nom, $descripcion, $pvp);
+            $stmt->bind_result($cod, $nom, $descripcion, $pvp, $familia);
             //con 'fetch()' recojo una fila y creo un array asociativo con los valores de las variables recogidas en la consulta ($var, $nom, $pvp
             while ($stmt->fetch()) {
                 //será un array indexado de array asociativo con las variables
-                $productos[] = ["cod" => $cod, "nombre" => $nom, "descripcion" => $descripcion, "PVP" => $pvp];
+                $productos[] = ["cod" => $cod, "nombre" => $nom, "descripcion" => $descripcion, "PVP" => $pvp, "familia" => $familia];
             }
         } catch (\mysqli_sql_exception $e) {
             return "Error SQL: " . $e->getMessage();
@@ -171,25 +171,29 @@ FIN;
     }
 
     /**
-     * Actualiza los la base de
+     * Actualiza el producto en la base de datos
      * @param string $nombre
      * @param string $descripcion
      * @param string $pvp
      * @param string $cod_producto
      * @return bool
      */
-    public function actualizar_producto(string $nombre, string $descripcion, string $pvp, string $cod_producto):bool
+    public function actualizar_producto(string $nombre, string $descripcion, string $pvp, string $cod_familia, string $cod_producto): bool
     {
-        $sentencia = <<<FIN
+        $nombre = trim($nombre);
+        if ($nombre !== '') {
+            $sentencia = <<<FIN
 UPDATE producto
-SET nombre_corto = ?, descripcion = ?, PVP = ?
+SET nombre_corto = ?, descripcion = ?, PVP = ?,  familia = ?
 WHERE cod = ?
 FIN;
-        //ponemos las variables
-        $stmt = $this->con->stmt_init();
-        $stmt->prepare($sentencia);
-        $stmt->bind_param("ssss", $nombre,$descripcion, $pvp, $cod_producto);
-        $stmt->execute();
-        return $stmt->store_result();
+            //ponemos las variables
+            $stmt = $this->con->stmt_init();
+            $stmt->prepare($sentencia);
+            $stmt->bind_param("sssss", $nombre, $descripcion, $pvp, $cod_familia, $cod_producto);
+            $stmt->execute();
+            return $stmt->store_result();
+        } else
+            return false;
     }
 }

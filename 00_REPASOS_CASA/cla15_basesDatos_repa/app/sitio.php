@@ -25,12 +25,12 @@ if (is_null($usuario)) {
     header("Location:_index.php");
     exit();
 }
-//Obtenemos array con nombres de las familias de productos de la DB
+//Obtenemos array con nombres de las FAMILIAS de productos de la DB
 $con = new Database();
 $familias = $con->obtener_familias();
-var_dump($_SESSION);
 
 //Obtenermos productos[] de la familia que el usuario a elegido
+$msj = '';
 $opcion = $_POST['submit'] ?? null;
 switch ($opcion) {
     case "Ver Productos":
@@ -40,15 +40,16 @@ switch ($opcion) {
         $productos = $con->obtener_productos($cod_familia, "familia");
         //Guardamos en variable sesión el codigo fámilia para futuros usos
         $_SESSION['cod_familia'] = $cod_familia;
-        var_dump($_SESSION['cod_familia']);
         break;
     case "Cancelar";
         $cod_familia = $_SESSION['cod_familia'];
-
-        var_dump($cod_familia);
         $productos = $con->obtener_productos($cod_familia, "familia");
         break;
     default:
+        if (isset($_SESSION['cod_familia'])) {
+            $cod_familia = $_SESSION['cod_familia'];
+            $productos = $con->obtener_productos($cod_familia, "familia");
+        }
 }
 
 ?>
@@ -65,22 +66,24 @@ switch ($opcion) {
 <body>
 
 <h1>Bienvenido a tu tienda de informática, <?= $usuario ?> </h1>
-<form action="" method="post">
-    <select name="familias" id="">
-        <!-- Menu ('select') una opción para cada uno de los nombres extraidas de la DB en $familias [] -->
-        <?php
-        foreach ($familias as $familia) {
-            $cod = $familia['cod'];
-            $nombre = $familia['nombre'];
-            //Mantener la opción elegida. Ponemos "selected" en la etiqueta option.
-            $selected = ($cod == $cod_familia) ? "selected" : "";
-            echo "<option value='$cod' $selected >$nombre</option>";
-        }
-        ?>
-    </select>
-    <!-- Boton para ver los productos de la familia elegida. -->
-    <input type="submit" value="Ver Productos" name="submit">
-</form>
+<section id="select-familias">
+    <form action="" method="post">
+        <select name="familias" id="">
+            <!-- Menu ('select') una opción para cada uno de los nombres extraidas de la DB en $familias [] -->
+            <?php
+            foreach ($familias as $familia) {
+                $cod = $familia['cod'];
+                $nombre = $familia['nombre'];
+                //Mantener la opción elegida. Ponemos "selected" en la etiqueta option.
+                $selected = ($cod == $cod_familia) ? "selected" : "";
+                echo "<option value='$cod' $selected >$nombre</option>";
+            }
+            ?>
+        </select>
+        <!-- Boton para ver los productos de la familia elegida. -->
+        <input type="submit" value="Ver Productos" name="submit">
+    </form>
+</section>
 <section class="productos">
     <!--Tabla con el array conseguido de la seleccion de DB con 'productos[]'-->
     <?php

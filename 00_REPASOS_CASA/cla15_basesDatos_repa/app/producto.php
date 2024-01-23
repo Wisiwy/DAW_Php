@@ -6,7 +6,6 @@
  */
 /*Ver errores*/
 session_start();
-var_dump($_SESSION);
 ini_set("display_errors", true);
 error_reporting(E_ALL);
 /*Composer y alias a clases*/
@@ -39,12 +38,19 @@ switch ($opcion) {
         $descripcion = $_POST["descripcion"];
         $pvp = $_POST["pvp"];
         $cod_producto = $_POST['cod_producto'];
+        $cod_familia = $_POST['pro_familias'];
+        var_dump($cod_familia);
         //actualizamos la base de datos con la nueva info
-        if($con->actualizar_producto($nombre, $descripcion, $pvp,$cod_producto))
+        if ($con->actualizar_producto($nombre, $descripcion, $pvp, $cod_familia, $cod_producto))
             header("Location:actualizar.php");
-        else
+        else {
             //si no se ha realizado la inserccion devuelve false
-            echo "Actualizacion incorrecta";
+            $msj=  "Actualizacion incorrecta";
+            $style = "red"; //pner en estile
+            $cod_producto = $_POST['cod_producto'];
+            //consulta a DB: array con info del producto
+            $datos_producto = $con->obtener_productos($cod_producto, "producto");
+        }
         break;
     default:
 }
@@ -57,12 +63,12 @@ switch ($opcion) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="estilos/estilo-producto.css">
+    <link rel="stylesheet" href="estilos/estilo-producto2.css">
     <title>cla15_DB_repa: Producto</title>
 </head>
 <body>
-<h1>Actualizar Producto con código: <?= $cod_producto ?></h1>
-<h2><?= $datos_producto[0]['nombre'] ?></h2>
+<h1><?=$msj?></h1>
+<h2><?= $datos_producto[0]['nombre'] ?> <br>(cod:<?= $cod_producto ?>)</h2>
 <form action="producto.php" method="post">
 
     <label for="nombreCorto">Nombre Corto:</label>
@@ -76,16 +82,34 @@ switch ($opcion) {
     <br>
 
     <label for="pvp">Precio (PVP):</label><br>
-    <input type="text" id="pvp" name="pvp" step="0.01" value="<?= $datos_producto[0]['PVP'] ?>">
+    <input type="text" required id="pvp" name="pvp" step="0.01" value="<?= $datos_producto[0]['PVP'] ?>">
 
     <br>
-    <!-- Pasamos por post el cod_producto para actualizar base datos -->
-    <input type="hidden" name="cod_producto" value="<?=$datos_producto[0]['cod']?>" >
+    <!-- Select para cambiar Familias -->
+    <label for=""></label>
+    <select name="pro_familias" id="">
+        <!-- Menu ('select') una opción para cada uno de los nombres extraidas de la DB en $familias [] -->
+        <?php
+        $familias = $con->obtener_familias();
+        foreach ($familias as $familia) {
+            $cod = $familia['cod'];
+            $nombre = $familia['nombre'];
+            //Mantener la opción elegida. Ponemos "selected" en la etiqueta option.
+            $selected = ($cod == $datos_producto[0]['familia']) ? "selected" : "";
+            echo "<option value='$cod' $selected >$nombre</option>";
+        }
+        ?>
+    </select>
 
+    <!-- Pasamos por post el cod_producto para actualizar base datos -->
+    <input type="hidden" name="cod_producto" value="<?= $datos_producto[0]['cod'] ?>">
+    <br>
     <button type="submit" name="submit" value="Actualizar">Actualizar</button>
+
 </form>
 <form action="sitio.php" method="post">
     <button type="submit" name="submit" value="Cancelar">Cancelar</button>
 </form>
+
 </body>
 </html>
