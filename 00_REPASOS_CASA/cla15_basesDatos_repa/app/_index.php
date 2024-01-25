@@ -4,7 +4,6 @@
  * Date: 13/01/24
  * Version: 00.1
  */
-
 /*Ver errores*/
 /*ini_set("display_errors", true);
 error_reporting(E_ALL);*/
@@ -26,20 +25,19 @@ $con = new Database();
 $opcion = $_POST['submit'] ?? null;
 switch ($opcion) {
     case "Acceder":
-        //recogo datos usuario
+        //Recojo datos del usuario
         $usuario = htmlspecialchars(filter_input(INPUT_POST, 'usuario'));
         $password = htmlspecialchars(filter_input(INPUT_POST, 'password'));
-        //compruebo que existe usuario en base de datos
+        //Compruebo que existe usuario en base de datos
         if ($con->validar_usuario($usuario, $password)) {
-            //guardo usuario en variable sesion, para llamarlo en sitio.php
+            //Guardo usuario en variable sesion, para llamarlo en sitio.php
             session_start();
             $_SESSION['usuario'] = $usuario;
-            //redirigo al sitio del usuario
+            //Redirigo al sitio del usuario
             header("Location:sitio.php");
             exit;
         }
-        $msj = "Datos acceso incorectos. Miau";
-
+        $msj = "Datos acceso incorrectos.";
         break;
     case "Registrarme":
         //Leemos los datos del formulario
@@ -66,6 +64,7 @@ switch ($opcion) {
 
 <section>
     <fieldset>
+        <!-- Formulario de acceso/registro usuario.  -->
     <legend><h3>Acceso usuario</h3></legend>
         <form action="" method="POST">
             <label for="usuario">Usuario</label>
@@ -81,7 +80,5 @@ switch ($opcion) {
         </form>
     </fieldset>
 </section>
-
-
 </body>
 </html>

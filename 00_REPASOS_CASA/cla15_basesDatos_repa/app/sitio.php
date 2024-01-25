@@ -10,7 +10,6 @@ error_reporting(E_ALL);
 
 /*Composer y alias a clases*/
 require "vendor/autoload.php";
-
 use utilidades_repa\DB as Database;
 use Dotenv\Dotenv;
 
@@ -25,7 +24,8 @@ if (is_null($usuario)) {
     header("Location:_index.php");
     exit();
 }
-//Obtenemos array con nombres de las FAMILIAS de productos de la DB
+
+//Obtenemos FAMMILIAS[] array con nombres de las FAMILIAS de productos de la DB.
 $con = new Database();
 $familias = $con->obtener_familias();
 
@@ -33,6 +33,9 @@ $familias = $con->obtener_familias();
 $msj = '';
 $opcion = $_POST['submit'] ?? null;
 switch ($opcion) {
+
+    //*****ALERTA: dejo el código antes de refactorizar para entenderlo mejor. (Comentado lo no necesario) ******
+
     case "Ver Productos":
         //Cuando quiero recoger el value de un <option>, recojo el post del <select>
         $cod_familia = $_POST['familias'];
@@ -40,18 +43,19 @@ switch ($opcion) {
         $productos = $con->obtener_productos($cod_familia, "familia");
         //Guardamos en variable sesión el codigo fámilia para futuros usos
         $_SESSION['cod_familia'] = $cod_familia;
-        break;
-    case "Cancelar";
+       // break;
+/*    case "Cancelar";
         $cod_familia = $_SESSION['cod_familia'];
         $productos = $con->obtener_productos($cod_familia, "familia");
-        break;
+        break;*/
     default:
         if (isset($_SESSION['cod_familia'])) {
             $cod_familia = $_SESSION['cod_familia'];
-            $productos = $con->obtener_productos($cod_familia, "familia");
+           $productos = $con->obtener_productos($cod_familia, "familia");
         }
 }
 
+/****HTML view****/
 ?>
 <!doctype html>
 <html lang="en">

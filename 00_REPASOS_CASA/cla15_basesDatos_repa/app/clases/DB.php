@@ -181,7 +181,7 @@ FIN;
     public function actualizar_producto(string $nombre, string $descripcion, string $pvp, string $cod_familia, string $cod_producto): bool
     {
         $nombre = trim($nombre);
-        if ($nombre !== '') {
+        if ($nombre !== '' && strlen($nombre) < 50 && is_numeric($pvp)) {
             $sentencia = <<<FIN
 UPDATE producto
 SET nombre_corto = ?, descripcion = ?, PVP = ?,  familia = ?

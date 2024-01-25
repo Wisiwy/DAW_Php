@@ -1,11 +1,21 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 20px;
+    margin: 0;
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
-
+h1{
+    color: #4caf50;
+    font-size:xx-large;
+}
 h2 {
     color: #333;
+    text-align: center
 }
 
 form {
@@ -13,22 +23,22 @@ form {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
+    margin-top: 20px;
+    width: 25%;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
-    font-size: larger;
+    margin-top: 10px;
     font-weight: bold;
 }
 
-input,
-textarea {
+input[type="text"],
+textarea,
+select {
     width: 100%;
     padding: 8px;
-    margin-bottom: 16px;
+    margin-top: 5px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -41,17 +51,18 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-right: 8px;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-button[type="button"] {
-    background-color: #f44336;
+button[name="submit"][value="Cancelar"] {
+    background-color: #ccc;
+    color: #333;
 }
 
-button[type="button"]:hover {
-    background-color: #d32f2f;
+button[name="submit"][value="Cancelar"]:hover {
+    background-color: #999;
 }

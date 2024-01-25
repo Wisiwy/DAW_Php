@@ -1,9 +1,8 @@
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    height: 50vh;
+    padding: 10vh;
     margin: 12vh;
 
 }
